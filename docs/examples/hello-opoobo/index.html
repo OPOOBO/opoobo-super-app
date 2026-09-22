@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#FF4500" />
+<title>Hello OPOOBO — demo mini-app</title>
+<style>
+  :root { --bg:#FAF9F6; --fg:#2C2620; --muted:#878078; --card:#fff; --line:#E8E6E1; --pri:#FF4500; --pri2:#BD5A00; }
+  [data-theme="dark"] { --bg:#28231E; --fg:#F7F6F3; --muted:#B0A99E; --card:#36302A; --line:rgba(255,255,255,.1); }
+  * { box-sizing:border-box; } body { margin:0; font-family:system-ui,-apple-system,"Plus Jakarta Sans",sans-serif; background:var(--bg); color:var(--fg); padding-bottom:calc(24px + env(safe-area-inset-bottom)); }
+  .wrap { max-width:560px; margin:0 auto; padding:20px 20px 0; }
+  .hero { border-radius:24px; padding:24px; color:#fff; background:linear-gradient(135deg,var(--pri),var(--pri2)); box-shadow:0 12px 32px rgba(255,69,0,.35); }
+  .hero small { opacity:.85; letter-spacing:.4px; text-transform:uppercase; font-size:11px; font-weight:700; }
+  .hero h1 { margin:6px 0 4px; font-size:28px; } .hero p { margin:0; opacity:.92; font-size:14px; }
+  .badge { display:inline-block; margin-top:12px; font-size:11px; font-weight:700; background:rgba(255,255,255,.22); padding:4px 10px; border-radius:20px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:20px; padding:16px; margin-top:14px; }
+  .card h2 { margin:0 0 4px; font-size:14px; } .card p { margin:0 0 10px; font-size:12px; color:var(--muted); }
+  .row { display:flex; gap:8px; flex-wrap:wrap; } button { border:0; border-radius:14px; padding:12px 14px; font-weight:700; font-size:13px; cursor:pointer; min-height:44px; }
+  .pri { background:linear-gradient(135deg,var(--pri),var(--pri2)); color:#fff; } .sec { background:var(--bg); color:var(--fg); border:1px solid var(--line); }
+  code.out { display:block; margin-top:10px; font-size:11px; background:var(--bg); border:1px solid var(--line); border-radius:12px; padding:10px; white-space:pre-wrap; word-break:break-word; color:var(--muted); }
+  .kv { display:grid; grid-template-columns:130px 1fr; gap:6px 10px; font-size:12px; margin-top:8px; } .kv b { color:var(--muted); font-weight:600; }
+  .note { font-size:12px; color:var(--muted); margin-top:14px; line-height:1.5; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <small>Hello OPOOBO demo</small>
+    <h1>Hi, <span id="name">…</span> 👋</h1>
+    <p id="sub">Waiting for the OPOOBO bridge…</p>
+    <span class="badge" id="env">browser mode</span>
+  </div>
+  <div class="card"><h2>Identity</h2><p>Sync getters — no network.</p>
+    <div class="kv"><b>Module</b><span id="mod">–</span><b>Version</b><span id="ver">–</span><b>Theme</b><span id="theme">–</span><b>Platform</b><span id="plat">–</span></div>
+  </div>
+  <div class="card"><h2>Wallet (async)</h2><p>Promise with 10s timeout — always catch.</p>
+    <div class="row"><button class="pri" id="balBtn">Get balance</button></div>
+    <code class="out" id="balOut">not fetched yet</code>
+  </div>
+  <div class="card"><h2>Actions</h2><p>Fire-and-forget messages to the shell.</p>
+    <div class="row"><button class="sec" id="toastBtn">Show toast</button><button class="sec" id="backBtn">Request back</button></div>
+  </div>
+  <p class="note">Tip: open with <code>?mock=1</code> to preview with a fake bridge. Inside OPOOBO the real <code>window.opoobo</code> is injected by <code>MiniAppBridge</code>. Full API in <code>docs/mini-app-bridge.md</code>.</p>
+</div>
+<script>
+(function () {
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+
+  // Mock bridge for desktop preview (?mock=1). Mirrors lib/bridge/bridge_js.dart.
+  if (location.search.indexOf("mock=1") > -1 && !window.opoobo) {
+    window.opoobo = {
+      _bridgeReady: true,
+      accessToken: "mock-jwt",
+      moduleName: "hello-opoobo",
+      moduleVersion: "1.0.0",
+      getUserProfile: function () { return { name: "Ada Lovelace", email: "ada@example.com", sub: "mock-sub" }; },
+      getTheme: function () { return "light"; },
+      getModuleInfo: function () { return { name: "hello-opoobo", version: "1.0.0" }; },
+      getPlatform: function () { return { os: "web", appVersion: "mock", locale: navigator.language }; },
+      getWalletBalance: function () { return Promise.resolve({ balance: 25000, currency: "NGN" }); },
+      getSavedAddresses: function () { return Promise.resolve([]); },
+      getPaymentMethods: function () { return Promise.resolve([]); },
+      requestBack: function () { alert("requestBack (mock)"); },
+      showToast: function (m) { alert(m); },
+      trackEvent: function (n, p) { console.log("[track]", n, p); }
+    };
+    $("env").textContent = "mock bridge (?mock=1)";
+  }
+
+  function sdk() { return (window.opoobo && window.opoobo._bridgeReady) ? window.opoobo : null; }
+  function theme() { var b = sdk(); return b ? b.getTheme() : "light"; }
+  function applyTheme(t) { document.documentElement.setAttribute("data-theme", t); $("theme").textContent = t; }
+
+  function init() {
+    var b = sdk();
+    if (!b) { $("sub").textContent = "Bridge not present — showing fallback. Host + open inside OPOOBO for SSO."; return; }
+    var p = b.getUserProfile() || {};
+    $("name").textContent = p.name || "OPOOBO user";
+    var info = b.getModuleInfo();
+    $("mod").textContent = info.name; $("ver").textContent = info.version;
+    var pf = b.getPlatform(); $("plat").textContent = pf.os + " / " + pf.locale;
+    applyTheme(b.getTheme());
+    $("sub").textContent = "Bridge ready. Token " + (b.accessToken ? "present" : "missing") + ".";
+    $("env").textContent = $("env").textContent === "browser mode" ? "inside OPOOBO" : $("env").textContent;
+    try { b.trackEvent("hello_opened", info); } catch (_) {}
+  }
+
+  window.addEventListener("opoobo:ready", init);
+  window.addEventListener("opoobo:tokenReady", init);
+  window.addEventListener("opoobo:themeChanged", function (e) { applyTheme(e.detail.theme); });
+  window.addEventListener("opoobo:appPause", function () { console.log("paused"); });
+  window.addEventListener("opoobo:appResume", function () { init(); });
+
+  $("balBtn").addEventListener("click", function () {
+    var b = sdk();
+    if (!b) { $("balOut").textContent = "no bridge — unavailable in browser"; return; }
+    $("balOut").textContent = "loading…";
+    b.getWalletBalance().then(function (r) { $("balOut").textContent = JSON.stringify(r); })
+      .catch(function (e) { $("balOut").textContent = "unavailable (" + e + ")"; });
+  });
+  $("toastBtn").addEventListener("click", function () { var b = sdk(); if (b) b.showToast("Hello from Hello OPOOBO!"); });
+  $("backBtn").addEventListener("click", function () { var b = sdk(); if (b) b.requestBack(); });
+
+  applyTheme(theme());
+  if (sdk()) init();
+})();
+</script>
+</body>
+</html>
+
