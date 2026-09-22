@@ -20,6 +20,7 @@ import 'ticket_detail_screen.dart';
 import 'marketplace_screen.dart';
 import 'mini_app_screen.dart';
 import '../utils/navigation.dart';
+import '../widgets/home_banner_carousel.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -30,7 +31,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _currentNavIndex = 0;
-  bool _balanceHidden = false;
 
   @override
   void initState() {
@@ -64,8 +64,6 @@ class _HomeScreenState extends State<HomeScreen> {
       _HomeContent(
         isDark: isDark,
         topPadding: topPadding,
-        balanceHidden: _balanceHidden,
-        onToggleBalance: () => setState(() => _balanceHidden = !_balanceHidden),
         onViewActivity: () => setState(() => _currentNavIndex = 2),
       ),
       const ServicesScreen(),
@@ -86,15 +84,11 @@ class _HomeScreenState extends State<HomeScreen> {
 class _HomeContent extends StatelessWidget {
   final bool isDark;
   final double topPadding;
-  final bool balanceHidden;
-  final VoidCallback onToggleBalance;
   final VoidCallback? onViewActivity;
 
   const _HomeContent({
     required this.isDark,
     required this.topPadding,
-    required this.balanceHidden,
-    required this.onToggleBalance,
     this.onViewActivity,
   });
 
@@ -111,7 +105,7 @@ class _HomeContent extends StatelessWidget {
           children: [
             _buildSearchBar(context),
             const SizedBox(height: 16),
-            _buildWalletCard(context),
+            HomeBannerCarousel(isDark: isDark),
             const SizedBox(height: 16),
             _buildQuickStats(context),
             const SizedBox(height: 20),
@@ -213,115 +207,6 @@ class _HomeContent extends StatelessWidget {
                 color: AppColors.primary,
               ),
             ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildWalletCard(BuildContext context) {
-    final dashboard = context.watch<DashboardProvider>();
-    final balance = dashboard.walletBalance;
-    final formattedBalance = balance == 0
-        ? '\u20a60.00'
-        : '\u20a6${balance.toStringAsFixed(2).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (m) => '${m[1]},')}';
-
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 20),
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        gradient: AppColors.gradientPrimary,
-        borderRadius: BorderRadius.circular(28),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.primary.withValues(alpha: 0.45),
-            blurRadius: 34,
-            offset: const Offset(0, 10),
-          ),
-        ],
-      ),
-      child: Stack(
-        children: [
-          Positioned(
-            top: -20,
-            right: -20,
-            child: Container(
-              width: 80,
-              height: 80,
-              decoration: BoxDecoration(
-                color: Colors.white.withValues(alpha: 0.08),
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: -30,
-            left: -10,
-            child: Container(
-              width: 100,
-              height: 100,
-              decoration: BoxDecoration(
-                color: Colors.white.withValues(alpha: 0.06),
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'OPOOBO WALLET',
-                    style: GoogleFonts.plusJakartaSans(
-                      fontSize: 10,
-                      fontWeight: FontWeight.w700,
-                      letterSpacing: 1.2,
-                      color: Colors.white.withValues(alpha: 0.8),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: onToggleBalance,
-                    child: Icon(
-                      balanceHidden
-                          ? Icons.visibility_off_rounded
-                          : Icons.visibility_rounded,
-                      size: 20,
-                      color: Colors.white.withValues(alpha: 0.8),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 8),
-              Text(
-                balanceHidden
-                    ? '\u20a6 \u2022\u2022\u2022\u2022\u2022\u2022'
-                    : formattedBalance,
-                style: GoogleFonts.sora(
-                  fontSize: 32,
-                  fontWeight: FontWeight.w800,
-                  color: Colors.white,
-                  height: 1.1,
-                ),
-              ),
-              const SizedBox(height: 16),
-              Row(
-                children: [
-                  _WalletButton(label: 'Top up', icon: Icons.add_rounded),
-                  const SizedBox(width: 10),
-                  _WalletButton(
-                    label: 'Send',
-                    icon: Icons.arrow_upward_rounded,
-                  ),
-                  const SizedBox(width: 10),
-                  _WalletButton(
-                    label: 'Scan',
-                    icon: Icons.qr_code_scanner_rounded,
-                  ),
-                ],
-              ),
-            ],
           ),
         ],
       ),
@@ -634,39 +519,6 @@ class _HomeContent extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class _WalletButton extends StatelessWidget {
-  final String label;
-  final IconData icon;
-
-  const _WalletButton({required this.label, required this.icon});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-      decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.22),
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, size: 16, color: Colors.white),
-          const SizedBox(width: 6),
-          Text(
-            label,
-            style: GoogleFonts.plusJakartaSans(
-              fontSize: 12,
-              fontWeight: FontWeight.w700,
-              color: Colors.white,
-            ),
-          ),
-        ],
       ),
     );
   }
