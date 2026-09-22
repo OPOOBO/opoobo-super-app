@@ -22,7 +22,7 @@ class HelpCenterScreen extends StatelessWidget {
       },
       {
         'q': 'How do I add money to my wallet?',
-        'a': 'Go to Profile > Payment Methods or tap "Top up" on the wallet card on the home screen.',
+        'a': 'Go to Profile > Payment Methods to top up your OPOOBO Wallet.',
       },
       {
         'q': 'How do I contact support?',
