@@ -12,7 +12,9 @@ import '../utils/navigation.dart';
 import '../widgets/screen_header.dart';
 
 class SearchScreen extends StatefulWidget {
-  const SearchScreen({super.key});
+  final String? initialQuery;
+
+  const SearchScreen({super.key, this.initialQuery});
 
   @override
   State<SearchScreen> createState() => _SearchScreenState();
@@ -37,6 +39,16 @@ class _SearchScreenState extends State<SearchScreen> {
     'Jobs',
   ];
 
+  @override
+  void initState() {
+    super.initState();
+    final initial = widget.initialQuery?.trim();
+    if (initial != null && initial.isNotEmpty) {
+      _controller.text = initial;
+      _query = initial;
+      WidgetsBinding.instance.addPostFrameCallback((_) => _runSearch(initial));
+    }
+  }
   @override
   void dispose() {
     _debounce?.cancel();

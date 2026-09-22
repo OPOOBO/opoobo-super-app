@@ -11,6 +11,7 @@ import '../providers/dashboard_provider.dart';
 import 'search_screen.dart';
 import 'services_screen.dart';
 import 'activity_screen.dart';
+import 'ai_assistant_screen.dart';
 
 import 'profile_screen.dart';
 import 'bus_module_screen.dart';
@@ -66,7 +67,6 @@ class _HomeScreenState extends State<HomeScreen> {
         balanceHidden: _balanceHidden,
         onToggleBalance: () => setState(() => _balanceHidden = !_balanceHidden),
         onViewActivity: () => setState(() => _currentNavIndex = 2),
-        onViewNotifications: () => setState(() => _currentNavIndex = 2),
       ),
       const ServicesScreen(),
       const ActivityScreen(),
@@ -89,7 +89,6 @@ class _HomeContent extends StatelessWidget {
   final bool balanceHidden;
   final VoidCallback onToggleBalance;
   final VoidCallback? onViewActivity;
-  final VoidCallback? onViewNotifications;
 
   const _HomeContent({
     required this.isDark,
@@ -97,15 +96,7 @@ class _HomeContent extends StatelessWidget {
     required this.balanceHidden,
     required this.onToggleBalance,
     this.onViewActivity,
-    this.onViewNotifications,
   });
-
-  String _greeting() {
-    final hour = DateTime.now().hour;
-    if (hour < 12) return 'Good Morning,';
-    if (hour < 17) return 'Good Afternoon,';
-    return 'Good Evening,';
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -118,8 +109,6 @@ class _HomeContent extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildHeader(context),
-            const SizedBox(height: 16),
             _buildSearchBar(context),
             const SizedBox(height: 16),
             _buildWalletCard(context),
@@ -150,85 +139,65 @@ class _HomeContent extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader(BuildContext context) {
-    final auth = context.watch<AuthProvider>();
-    final name = auth.displayName;
-    final initials = auth.initials;
-
+  Widget _buildSearchBar(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         children: [
-          // Avatar
-          Container(
-            width: 48,
-            height: 48,
-            decoration: BoxDecoration(
-              gradient: AppColors.gradientPrimary,
-              shape: BoxShape.circle,
-              border: Border.all(
-                color: AppColors.primary.withValues(alpha: 0.4),
-                width: 2,
-              ),
-            ),
-            child: Center(
-              child: Text(
-                initials,
-                style: GoogleFonts.sora(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(width: 12),
           Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  _greeting(),
-                  style: GoogleFonts.plusJakartaSans(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                    color: isDark
-                        ? AppColors.darkMutedForeground
-                        : AppColors.mutedForeground,
-                  ),
+            child: GestureDetector(
+              onTap: () => NavigationHelper.push(context, const SearchScreen()),
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 14,
                 ),
-                Row(
+                decoration: BoxDecoration(
+                  color: isDark
+                      ? AppColors.darkSurface
+                      : AppColors.glassStrong,
+                  border: Border.all(
+                    color: isDark
+                        ? AppColors.darkGlassBorder
+                        : AppColors.glassBorder,
+                  ),
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Row(
                   children: [
-                    Flexible(
+                    Icon(
+                      Icons.search_rounded,
+                      size: 20,
+                      color: isDark
+                          ? AppColors.darkMutedForeground
+                          : AppColors.mutedForeground,
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
                       child: Text(
-                        '$name \ud83d\udc4b',
-                        style: GoogleFonts.sora(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w800,
+                        'Search services, trips, orders\u2026',
+                        style: GoogleFonts.plusJakartaSans(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w500,
                           color: isDark
-                              ? AppColors.darkForeground
-                              : AppColors.foreground,
+                              ? AppColors.darkMutedForeground
+                              : AppColors.mutedForeground,
                         ),
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
-                    const SizedBox(width: 4),
-                    const Icon(
-                      Icons.badge_rounded,
-                      size: 18,
-                      color: AppColors.primary,
-                    ),
                   ],
                 ),
-              ],
+              ),
             ),
           ),
-          // Notification bell
+          const SizedBox(width: 10),
           GestureDetector(
-            onTap: () => onViewNotifications?.call(),
+            onTap: () =>
+                NavigationHelper.push(context, const AiAssistantScreen()),
             child: Container(
-              width: 44,
-              height: 44,
+              width: 48,
+              height: 48,
               decoration: BoxDecoration(
                 color: isDark ? AppColors.darkGlass : AppColors.glass,
                 border: Border.all(
@@ -238,81 +207,14 @@ class _HomeContent extends StatelessWidget {
                 ),
                 borderRadius: BorderRadius.circular(16),
               ),
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  Icon(
-                    Icons.notifications_rounded,
-                    size: 22,
-                    color: isDark
-                        ? AppColors.darkForeground
-                        : AppColors.foreground,
-                  ),
-                  Positioned(
-                    right: 8,
-                    top: 8,
-                    child: Container(
-                      width: 16,
-                      height: 16,
-                      decoration: const BoxDecoration(
-                        color: AppColors.destructive,
-                        shape: BoxShape.circle,
-                      ),
-                      alignment: Alignment.center,
-                      child: Text(
-                        '3',
-                        style: GoogleFonts.plusJakartaSans(
-                          fontSize: 9,
-                          fontWeight: FontWeight.w700,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+              child: Icon(
+                Icons.auto_awesome_rounded,
+                size: 22,
+                color: AppColors.primary,
               ),
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildSearchBar(BuildContext context) {
-    return GestureDetector(
-      onTap: () => NavigationHelper.push(context, const SearchScreen()),
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 20),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-        decoration: BoxDecoration(
-          color: isDark ? AppColors.darkSurface : AppColors.glassStrong,
-          border: Border.all(
-            color: isDark ? AppColors.darkGlassBorder : AppColors.glassBorder,
-          ),
-          borderRadius: BorderRadius.circular(16),
-        ),
-        child: Row(
-          children: [
-            Icon(
-              Icons.search_rounded,
-              size: 20,
-              color: isDark
-                  ? AppColors.darkMutedForeground
-                  : AppColors.mutedForeground,
-            ),
-            const SizedBox(width: 10),
-            Text(
-              'Search services, trips, orders\u2026',
-              style: GoogleFonts.plusJakartaSans(
-                fontSize: 13,
-                fontWeight: FontWeight.w500,
-                color: isDark
-                    ? AppColors.darkMutedForeground
-                    : AppColors.mutedForeground,
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }
