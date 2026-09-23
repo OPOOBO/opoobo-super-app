@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'app_colors.dart';
 
 class AppTheme {
   AppTheme._();
 
   static ThemeData light() {
-    return ThemeData(
+    final base = ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
       scaffoldBackgroundColor: AppColors.background,
@@ -23,10 +24,14 @@ class AppTheme {
       splashColor: AppColors.primarySoft,
       highlightColor: AppColors.primarySoft,
     );
+    return base.copyWith(
+      textTheme: GoogleFonts.interTextTheme(base.textTheme),
+      primaryTextTheme: GoogleFonts.interTextTheme(base.primaryTextTheme),
+    );
   }
 
   static ThemeData dark() {
-    return ThemeData(
+    final base = ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
       scaffoldBackgroundColor: AppColors.darkBackground,
@@ -43,6 +48,10 @@ class AppTheme {
       dividerColor: AppColors.darkBorder,
       splashColor: AppColors.darkPrimarySoft,
       highlightColor: AppColors.darkPrimarySoft,
+    );
+    return base.copyWith(
+      textTheme: GoogleFonts.interTextTheme(base.textTheme),
+      primaryTextTheme: GoogleFonts.interTextTheme(base.primaryTextTheme),
     );
   }
 }

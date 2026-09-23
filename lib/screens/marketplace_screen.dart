@@ -224,7 +224,7 @@ class _MarketplaceScreenState extends State<MarketplaceScreen> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Icon(
-                      Icons.favorite_border_rounded,
+                      Icons.favorite_border_outlined,
                       size: 18,
                       color: isDark
                           ? AppColors.darkForeground
@@ -247,7 +247,7 @@ class _MarketplaceScreenState extends State<MarketplaceScreen> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Icon(
-                      Icons.chat_bubble_outline_rounded,
+                      Icons.chat_bubble_outline_outlined,
                       size: 18,
                       color: isDark
                           ? AppColors.darkForeground
@@ -265,7 +265,7 @@ class _MarketplaceScreenState extends State<MarketplaceScreen> {
               onSubmitted: (_) => _search(),
               decoration: InputDecoration(
                 hintText: 'Search items...',
-                prefixIcon: const Icon(Icons.search_rounded),
+                prefixIcon: const Icon(Icons.search_outlined),
                 filled: true,
                 fillColor: isDark ? AppColors.darkSurface : AppColors.surface,
                 border: OutlineInputBorder(
@@ -310,7 +310,7 @@ class _MarketplaceScreenState extends State<MarketplaceScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Icon(
-                            Icons.star_rounded,
+                            Icons.star_outlined,
                             size: 14,
                             color: _featuredOnly
                                 ? Colors.white
@@ -319,7 +319,7 @@ class _MarketplaceScreenState extends State<MarketplaceScreen> {
                           const SizedBox(width: 4),
                           Text(
                             'Featured',
-                            style: GoogleFonts.plusJakartaSans(
+                            style: GoogleFonts.inter(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
                               color: _featuredOnly
@@ -454,7 +454,7 @@ class _MarketplaceScreenState extends State<MarketplaceScreen> {
         alignment: Alignment.center,
         child: Text(
           label,
-          style: GoogleFonts.plusJakartaSans(
+          style: GoogleFonts.inter(
             fontSize: 12,
             fontWeight: FontWeight.w600,
             color: selected

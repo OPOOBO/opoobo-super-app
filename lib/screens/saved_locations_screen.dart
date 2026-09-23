@@ -53,7 +53,7 @@ class _SavedLocationsScreenState extends State<SavedLocationsScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () => _showAddDialog(),
         backgroundColor: AppColors.primary,
-        child: const Icon(Icons.add_rounded, color: Colors.white),
+        child: const Icon(Icons.add_outlined, color: Colors.white),
       ),
     );
   }
@@ -145,11 +145,11 @@ class _EmptyState extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.location_off_rounded, size: 64, color: AppColors.mutedForeground),
+          Icon(Icons.location_off_outlined, size: 64, color: AppColors.mutedForeground),
           const SizedBox(height: 12),
-          Text('No saved locations', style: GoogleFonts.plusJakartaSans(fontSize: 15, color: AppColors.mutedForeground)),
+          Text('No saved locations', style: GoogleFonts.inter(fontSize: 15, color: AppColors.mutedForeground)),
           const SizedBox(height: 4),
-          Text('Tap + to save your first location', style: GoogleFonts.plusJakartaSans(fontSize: 12, color: AppColors.mutedForeground)),
+          Text('Tap + to save your first location', style: GoogleFonts.inter(fontSize: 12, color: AppColors.mutedForeground)),
         ],
       ),
     );
@@ -182,7 +182,7 @@ class _LocationTile extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
             child: Icon(
-              location.type == 'airport' ? Icons.flight_takeoff_rounded : Icons.directions_bus_rounded,
+              location.type == 'airport' ? Icons.flight_takeoff_outlined : Icons.directions_bus_outlined,
               color: AppColors.primary,
               size: 20,
             ),
@@ -192,9 +192,9 @@ class _LocationTile extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(location.name, style: GoogleFonts.plusJakartaSans(fontSize: 14, fontWeight: FontWeight.w600)),
+                Text(location.name, style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.w600)),
                 if (location.code != null && location.code!.isNotEmpty)
-                  Text(location.code!, style: GoogleFonts.plusJakartaSans(fontSize: 11, color: AppColors.mutedForeground)),
+                  Text(location.code!, style: GoogleFonts.inter(fontSize: 11, color: AppColors.mutedForeground)),
               ],
             ),
           ),

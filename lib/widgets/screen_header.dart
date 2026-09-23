@@ -26,13 +26,12 @@ class ScreenHeader extends StatelessWidget {
     return Container(
       padding: EdgeInsets.fromLTRB(16, topPadding + 8, 16, 16),
       decoration: BoxDecoration(
-        color: isDark ? AppColors.darkSurface : AppColors.glassStrong,
+        color: isDark ? AppColors.darkSurface : AppColors.surface,
         border: Border(
           bottom: BorderSide(
-            color: isDark ? AppColors.darkGlassBorder : AppColors.glassBorder,
+            color: isDark ? AppColors.darkBorder : AppColors.border,
           ),
         ),
-        borderRadius: const BorderRadius.vertical(bottom: Radius.circular(24)),
       ),
       child: Row(
         children: [
@@ -49,7 +48,7 @@ class ScreenHeader extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Icon(
-                  Icons.arrow_back_ios_new_rounded,
+                  Icons.arrow_back_ios_new_outlined,
                   size: 18,
                   color: isDark
                       ? AppColors.darkForeground
@@ -65,7 +64,7 @@ class ScreenHeader extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: GoogleFonts.sora(
+                  style: GoogleFonts.inter(
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
                     color: isDark
@@ -78,7 +77,7 @@ class ScreenHeader extends StatelessWidget {
                 if (subtitle != null)
                   Text(
                     subtitle!,
-                    style: GoogleFonts.plusJakartaSans(
+                    style: GoogleFonts.inter(
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
                       color: isDark

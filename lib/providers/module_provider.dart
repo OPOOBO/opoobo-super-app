@@ -205,7 +205,7 @@ class ModuleProvider extends ChangeNotifier {
       ModuleData(
         id: 1,
         name: 'bus',
-        displayName: 'OPOOBO Bus',
+        displayName: 'Bus',
         description:
             'Book interstate and intercity bus trips across Nigeria. Compare operators, pick your seat, and pay securely.',
         icon: 'directions_bus_rounded',
@@ -216,7 +216,7 @@ class ModuleProvider extends ChangeNotifier {
       ModuleData(
         id: 2,
         name: 'market',
-        displayName: 'OPOOBO Market',
+        displayName: 'Market',
         description:
             'Buy and sell everything from trusted vendors. Discover deals, order delivery, and pay securely.',
         icon: 'shopping_cart_rounded',

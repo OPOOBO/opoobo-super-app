@@ -119,7 +119,7 @@ class _BusResultsScreenState extends State<BusResultsScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Icon(
-                            Icons.directions_bus_rounded,
+                            Icons.directions_bus_outlined,
                             size: 64,
                             color: AppColors.mutedForeground.withValues(
                               alpha: 0.3,
@@ -128,7 +128,7 @@ class _BusResultsScreenState extends State<BusResultsScreen> {
                           const SizedBox(height: 16),
                           Text(
                             'No buses found',
-                            style: GoogleFonts.sora(
+                            style: GoogleFonts.inter(
                               fontSize: 18,
                               fontWeight: FontWeight.w700,
                               color: isDark
@@ -139,7 +139,7 @@ class _BusResultsScreenState extends State<BusResultsScreen> {
                           const SizedBox(height: 8),
                           Text(
                             'Try adjusting your search or filters',
-                            style: GoogleFonts.plusJakartaSans(
+                            style: GoogleFonts.inter(
                               fontSize: 13,
                               color: isDark
                                   ? AppColors.darkMutedForeground
@@ -235,7 +235,7 @@ class _FilterChip extends StatelessWidget {
         ),
         child: Text(
           label,
-          style: GoogleFonts.plusJakartaSans(
+          style: GoogleFonts.inter(
             fontSize: 12,
             fontWeight: FontWeight.w600,
             color: selected
@@ -284,7 +284,7 @@ class _BusCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: const Icon(
-                    Icons.directions_bus_rounded,
+                    Icons.directions_bus_outlined,
                     color: AppColors.primary,
                     size: 22,
                   ),
@@ -296,7 +296,7 @@ class _BusCard extends StatelessWidget {
                     children: [
                       Text(
                         bus.busTitle,
-                        style: GoogleFonts.plusJakartaSans(
+                        style: GoogleFonts.inter(
                           fontSize: 14,
                           fontWeight: FontWeight.w700,
                           color: isDark
@@ -308,7 +308,7 @@ class _BusCard extends StatelessWidget {
                       ),
                       Text(
                         '${bus.isAC ? "AC" : "Non-AC"} \u00b7 ${bus.leftSeat} seats left',
-                        style: GoogleFonts.plusJakartaSans(
+                        style: GoogleFonts.inter(
                           fontSize: 11,
                           fontWeight: FontWeight.w500,
                           color: isDark
@@ -324,7 +324,7 @@ class _BusCard extends StatelessWidget {
                   children: [
                     Text(
                       '\u20a6${bus.ticketPrice}',
-                      style: GoogleFonts.sora(
+                      style: GoogleFonts.inter(
                         fontSize: 16,
                         fontWeight: FontWeight.w800,
                         color: AppColors.primary,
@@ -334,14 +334,14 @@ class _BusCard extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         const Icon(
-                          Icons.star_rounded,
+                          Icons.star_outlined,
                           size: 14,
                           color: Color(0xFFE5A733),
                         ),
                         const SizedBox(width: 2),
                         Text(
                           bus.busRate,
-                          style: GoogleFonts.plusJakartaSans(
+                          style: GoogleFonts.inter(
                             fontSize: 11,
                             fontWeight: FontWeight.w600,
                             color: isDark
@@ -363,7 +363,7 @@ class _BusCard extends StatelessWidget {
                   children: [
                     Text(
                       bus.busPicktime.substring(0, 5),
-                      style: GoogleFonts.sora(
+                      style: GoogleFonts.inter(
                         fontSize: 18,
                         fontWeight: FontWeight.w700,
                         color: isDark
@@ -374,7 +374,7 @@ class _BusCard extends StatelessWidget {
                     const SizedBox(height: 2),
                     Text(
                       bus.boardingCity,
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 10,
                         fontWeight: FontWeight.w500,
                         color: isDark
@@ -390,7 +390,7 @@ class _BusCard extends StatelessWidget {
                     children: [
                       Text(
                         bus.differencePickDrop,
-                        style: GoogleFonts.plusJakartaSans(
+                        style: GoogleFonts.inter(
                           fontSize: 10,
                           fontWeight: FontWeight.w600,
                           color: isDark
@@ -440,7 +440,7 @@ class _BusCard extends StatelessWidget {
                   children: [
                     Text(
                       bus.busDroptime.substring(0, 5),
-                      style: GoogleFonts.sora(
+                      style: GoogleFonts.inter(
                         fontSize: 18,
                         fontWeight: FontWeight.w700,
                         color: isDark
@@ -451,7 +451,7 @@ class _BusCard extends StatelessWidget {
                     const SizedBox(height: 2),
                     Text(
                       bus.dropCity,
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 10,
                         fontWeight: FontWeight.w500,
                         color: isDark
@@ -484,7 +484,7 @@ class _BusCard extends StatelessWidget {
                         ),
                         child: Text(
                           f.facilityName,
-                          style: GoogleFonts.plusJakartaSans(
+                          style: GoogleFonts.inter(
                             fontSize: 10,
                             fontWeight: FontWeight.w500,
                             color: isDark

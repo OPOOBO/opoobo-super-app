@@ -95,7 +95,7 @@ class _ReelItem extends StatelessWidget {
             children: [
               Text(
                 '@$user',
-                style: GoogleFonts.plusJakartaSans(
+                style: GoogleFonts.inter(
                   fontSize: 14,
                   fontWeight: FontWeight.w700,
                   color: Colors.white,
@@ -106,7 +106,7 @@ class _ReelItem extends StatelessWidget {
                 title,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
-                style: GoogleFonts.plusJakartaSans(
+                style: GoogleFonts.inter(
                   fontSize: 13,
                   color: Colors.white,
                 ),
@@ -121,19 +121,19 @@ class _ReelItem extends StatelessWidget {
           child: Column(
             children: [
               _ActionBtn(
-                icon: Icons.favorite_rounded,
+                icon: Icons.favorite_outlined,
                 count: '$likes',
                 onTap: () {},
               ),
               const SizedBox(height: 20),
               _ActionBtn(
-                icon: Icons.chat_bubble_rounded,
+                icon: Icons.chat_bubble_outlined,
                 count: '0',
                 onTap: () {},
               ),
               const SizedBox(height: 20),
               _ActionBtn(
-                icon: Icons.share_rounded,
+                icon: Icons.share_outlined,
                 count: 'Share',
                 onTap: () {},
               ),
@@ -165,7 +165,7 @@ class _ActionBtn extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             count,
-            style: GoogleFonts.plusJakartaSans(
+            style: GoogleFonts.inter(
               fontSize: 11,
               color: Colors.white,
             ),

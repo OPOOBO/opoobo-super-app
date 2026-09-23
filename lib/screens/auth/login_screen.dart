@@ -85,14 +85,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const Icon(
-                            Icons.login_rounded,
+                            Icons.login_outlined,
                             color: Colors.white,
                             size: 22,
                           ),
                           const SizedBox(width: 10),
                           Text(
                             'Sign in with OPOOBO Account',
-                            style: GoogleFonts.plusJakartaSans(
+                            style: GoogleFonts.inter(
                               fontSize: 15,
                               fontWeight: FontWeight.w700,
                               color: Colors.white,
@@ -108,7 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Text(
             'You\'ll be redirected to the OPOOBO Account portal to sign in securely.',
             textAlign: TextAlign.center,
-            style: GoogleFonts.plusJakartaSans(
+            style: GoogleFonts.inter(
               fontSize: 12,
               fontWeight: FontWeight.w500,
               color: isDark

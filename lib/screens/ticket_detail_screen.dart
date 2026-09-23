@@ -51,7 +51,7 @@ class TicketDetailScreen extends StatelessWidget {
                                 booking.qrCode,
                                 fit: BoxFit.contain,
                                 errorBuilder: (_, _, _) => const Icon(
-                                  Icons.qr_code_rounded,
+                                  Icons.qr_code_outlined,
                                   size: 60,
                                   color: AppColors.mutedForeground,
                                 ),
@@ -73,7 +73,7 @@ class TicketDetailScreen extends StatelessWidget {
                             ),
                             child: Text(
                               booking.bookingStatus,
-                              style: GoogleFonts.plusJakartaSans(
+                              style: GoogleFonts.inter(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w700,
                                 color: _statusColor(booking),
@@ -104,7 +104,7 @@ class TicketDetailScreen extends StatelessWidget {
                                       children: [
                                         Text(
                                           booking.busPicktime.substring(0, 5),
-                                          style: GoogleFonts.sora(
+                                          style: GoogleFonts.inter(
                                             fontSize: 24,
                                             fontWeight: FontWeight.w800,
                                             color: isDark
@@ -114,7 +114,7 @@ class TicketDetailScreen extends StatelessWidget {
                                         ),
                                         Text(
                                           booking.boardingCity,
-                                          style: GoogleFonts.plusJakartaSans(
+                                          style: GoogleFonts.inter(
                                             fontSize: 12,
                                             fontWeight: FontWeight.w500,
                                             color: isDark
@@ -131,13 +131,13 @@ class TicketDetailScreen extends StatelessWidget {
                                       child: Column(
                                         children: [
                                           Icon(
-                                            Icons.arrow_forward_rounded,
+                                            Icons.arrow_forward_outlined,
                                             size: 24,
                                             color: AppColors.primary,
                                           ),
                                           Text(
                                             booking.differencePickDrop,
-                                            style: GoogleFonts.plusJakartaSans(
+                                            style: GoogleFonts.inter(
                                               fontSize: 10,
                                               fontWeight: FontWeight.w600,
                                               color: isDark
@@ -153,7 +153,7 @@ class TicketDetailScreen extends StatelessWidget {
                                       children: [
                                         Text(
                                           booking.busDroptime.substring(0, 5),
-                                          style: GoogleFonts.sora(
+                                          style: GoogleFonts.inter(
                                             fontSize: 24,
                                             fontWeight: FontWeight.w800,
                                             color: isDark
@@ -163,7 +163,7 @@ class TicketDetailScreen extends StatelessWidget {
                                         ),
                                         Text(
                                           booking.dropCity,
-                                          style: GoogleFonts.plusJakartaSans(
+                                          style: GoogleFonts.inter(
                                             fontSize: 12,
                                             fontWeight: FontWeight.w500,
                                             color: isDark
@@ -233,7 +233,7 @@ class TicketDetailScreen extends StatelessWidget {
                               alignment: Alignment.centerLeft,
                               child: Text(
                                 'Passengers',
-                                style: GoogleFonts.sora(
+                                style: GoogleFonts.inter(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w800,
                                   color: isDark
@@ -276,7 +276,7 @@ class TicketDetailScreen extends StatelessWidget {
                                               : p.name.isNotEmpty
                                               ? p.name[0]
                                               : '?',
-                                          style: GoogleFonts.plusJakartaSans(
+                                          style: GoogleFonts.inter(
                                             fontSize: 12,
                                             fontWeight: FontWeight.w700,
                                             color: AppColors.primary,
@@ -294,7 +294,7 @@ class TicketDetailScreen extends StatelessWidget {
                                             p.name.isNotEmpty
                                                 ? p.name
                                                 : 'Passenger',
-                                            style: GoogleFonts.plusJakartaSans(
+                                            style: GoogleFonts.inter(
                                               fontSize: 13,
                                               fontWeight: FontWeight.w700,
                                               color: isDark
@@ -304,7 +304,7 @@ class TicketDetailScreen extends StatelessWidget {
                                           ),
                                           Text(
                                             '${p.age} yrs \u00b7 ${p.gender}',
-                                            style: GoogleFonts.plusJakartaSans(
+                                            style: GoogleFonts.inter(
                                               fontSize: 11,
                                               fontWeight: FontWeight.w500,
                                               color: isDark
@@ -341,7 +341,7 @@ class TicketDetailScreen extends StatelessWidget {
                                 ),
                                 child: Text(
                                   'Cancel Ticket',
-                                  style: GoogleFonts.plusJakartaSans(
+                                  style: GoogleFonts.inter(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w700,
                                     color: AppColors.destructive,
@@ -374,7 +374,7 @@ class TicketDetailScreen extends StatelessWidget {
         children: [
           Text(
             label,
-            style: GoogleFonts.plusJakartaSans(
+            style: GoogleFonts.inter(
               fontSize: 12,
               fontWeight: FontWeight.w500,
               color: isDark
@@ -385,7 +385,7 @@ class TicketDetailScreen extends StatelessWidget {
           Flexible(
             child: Text(
               value,
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 12,
                 fontWeight: FontWeight.w700,
                 color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -416,7 +416,7 @@ class TicketDetailScreen extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Icon(Icons.location_on_rounded, size: 20, color: AppColors.primary),
+          Icon(Icons.location_on_outlined, size: 20, color: AppColors.primary),
           const SizedBox(width: 10),
           Expanded(
             child: Column(
@@ -424,7 +424,7 @@ class TicketDetailScreen extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 10,
                     fontWeight: FontWeight.w700,
                     color: isDark
@@ -434,7 +434,7 @@ class TicketDetailScreen extends StatelessWidget {
                 ),
                 Text(
                   name,
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 13,
                     fontWeight: FontWeight.w700,
                     color: isDark
@@ -444,7 +444,7 @@ class TicketDetailScreen extends StatelessWidget {
                 ),
                 Text(
                   address,
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 11,
                     fontWeight: FontWeight.w500,
                     color: isDark
@@ -459,7 +459,7 @@ class TicketDetailScreen extends StatelessWidget {
           ),
           Text(
             time,
-            style: GoogleFonts.sora(
+            style: GoogleFonts.inter(
               fontSize: 14,
               fontWeight: FontWeight.w700,
               color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -481,21 +481,21 @@ class TicketDetailScreen extends StatelessWidget {
         backgroundColor: isDark ? AppColors.darkSurface : AppColors.surface,
         title: Text(
           'Cancel Ticket',
-          style: GoogleFonts.sora(fontWeight: FontWeight.w700),
+          style: GoogleFonts.inter(fontWeight: FontWeight.w700),
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
               'Are you sure you want to cancel this ticket?',
-              style: GoogleFonts.plusJakartaSans(fontSize: 13),
+              style: GoogleFonts.inter(fontSize: 13),
             ),
             const SizedBox(height: 12),
             TextField(
               controller: reasonController,
               decoration: InputDecoration(
                 hintText: 'Reason for cancellation',
-                hintStyle: GoogleFonts.plusJakartaSans(fontSize: 13),
+                hintStyle: GoogleFonts.inter(fontSize: 13),
                 filled: true,
                 fillColor: isDark
                     ? AppColors.darkBackground
@@ -505,7 +505,7 @@ class TicketDetailScreen extends StatelessWidget {
                   borderSide: BorderSide.none,
                 ),
               ),
-              style: GoogleFonts.plusJakartaSans(fontSize: 13),
+              style: GoogleFonts.inter(fontSize: 13),
             ),
           ],
         ),
@@ -514,7 +514,7 @@ class TicketDetailScreen extends StatelessWidget {
             onPressed: () => Navigator.pop(ctx),
             child: Text(
               'Keep Ticket',
-              style: GoogleFonts.plusJakartaSans(fontWeight: FontWeight.w600),
+              style: GoogleFonts.inter(fontWeight: FontWeight.w600),
             ),
           ),
           TextButton(
@@ -531,7 +531,7 @@ class TicketDetailScreen extends StatelessWidget {
             },
             child: Text(
               'Cancel',
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontWeight: FontWeight.w700,
                 color: AppColors.destructive,
               ),

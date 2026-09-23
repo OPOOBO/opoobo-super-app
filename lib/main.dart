@@ -4,6 +4,7 @@ import 'providers/auth_provider.dart';
 import 'providers/module_provider.dart';
 import 'providers/bus_booking_provider.dart';
 import 'providers/dashboard_provider.dart';
+import 'providers/offer_provider.dart';
 import 'providers/theme_provider.dart';
 import 'providers/payment_method_provider.dart';
 import 'providers/address_provider.dart';
@@ -24,6 +25,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => ModuleProvider()..loadModules()),
         ChangeNotifierProvider(create: (_) => BusBookingProvider()),
         ChangeNotifierProvider(create: (_) => DashboardProvider()..loadStats()),
+        ChangeNotifierProvider(create: (_) => OfferProvider()..load()),
         ChangeNotifierProvider(create: (_) => PaymentMethodProvider()),
         ChangeNotifierProvider(create: (_) => AddressProvider()),
         ChangeNotifierProvider(create: (_) => SavedLocationProvider()),

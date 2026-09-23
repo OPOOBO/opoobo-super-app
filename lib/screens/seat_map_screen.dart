@@ -60,14 +60,14 @@ class SeatMapScreen extends StatelessWidget {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 const Icon(
-                                  Icons.arrow_forward_rounded,
+                                  Icons.arrow_forward_outlined,
                                   size: 16,
                                   color: AppColors.mutedForeground,
                                 ),
                                 const SizedBox(width: 6),
                                 Text(
                                   'Driver',
-                                  style: GoogleFonts.plusJakartaSans(
+                                  style: GoogleFonts.inter(
                                     fontSize: 11,
                                     fontWeight: FontWeight.w600,
                                     color: isDark
@@ -83,7 +83,7 @@ class SeatMapScreen extends StatelessWidget {
                           if (layout.lowerLayout.isNotEmpty) ...[
                             Text(
                               'Lower Deck',
-                              style: GoogleFonts.sora(
+                              style: GoogleFonts.inter(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w700,
                                 color: isDark
@@ -104,7 +104,7 @@ class SeatMapScreen extends StatelessWidget {
                             const SizedBox(height: 24),
                             Text(
                               'Upper Deck',
-                              style: GoogleFonts.sora(
+                              style: GoogleFonts.inter(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w700,
                                 color: isDark
@@ -163,7 +163,7 @@ class SeatMapScreen extends StatelessWidget {
                                 alignment: Alignment.center,
                                 child: Text(
                                   'Continue (${busBooking.selectedSeats.length}/${busBooking.passengers})',
-                                  style: GoogleFonts.plusJakartaSans(
+                                  style: GoogleFonts.inter(
                                     fontSize: 15,
                                     fontWeight: FontWeight.w700,
                                     color: Colors.white,
@@ -270,7 +270,7 @@ class SeatMapScreen extends StatelessWidget {
                         child: Center(
                           child: Text(
                             seat.seatNumber,
-                            style: GoogleFonts.plusJakartaSans(
+                            style: GoogleFonts.inter(
                               fontSize: 10,
                               fontWeight: FontWeight.w700,
                               color: isSelected
@@ -324,7 +324,7 @@ class _LegendItem extends StatelessWidget {
         const SizedBox(width: 4),
         Text(
           label,
-          style: GoogleFonts.plusJakartaSans(
+          style: GoogleFonts.inter(
             fontSize: 10,
             fontWeight: FontWeight.w500,
             color: AppColors.mutedForeground,

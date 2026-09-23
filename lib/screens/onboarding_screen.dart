@@ -78,7 +78,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     ),
                     child: Text(
                       'Skip',
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
                         color: isDark
@@ -160,7 +160,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         alignment: Alignment.center,
                         child: Text(
                           _currentStep == 3 ? 'Get Started' : 'Next',
-                          style: GoogleFonts.plusJakartaSans(
+                          style: GoogleFonts.inter(
                             fontSize: 15,
                             fontWeight: FontWeight.w700,
                             color: Colors.white,
@@ -255,25 +255,25 @@ class _MergeArt extends StatelessWidget {
         Positioned(
           top: 40,
           left: 30,
-          child: _GlassTile(icon: Icons.directions_bus_rounded, isDark: isDark),
+          child: _GlassTile(icon: Icons.directions_bus_outlined, isDark: isDark),
         ),
         Positioned(
           top: 40,
           right: 30,
-          child: _GlassTile(icon: Icons.restaurant_rounded, isDark: isDark),
+          child: _GlassTile(icon: Icons.restaurant_outlined, isDark: isDark),
         ),
         Positioned(
           bottom: 60,
           left: 30,
           child: _GlassTile(
-            icon: Icons.shopping_basket_rounded,
+            icon: Icons.shopping_basket_outlined,
             isDark: isDark,
           ),
         ),
         Positioned(
           bottom: 60,
           right: 30,
-          child: _GlassTile(icon: Icons.directions_car_rounded, isDark: isDark),
+          child: _GlassTile(icon: Icons.directions_car_outlined, isDark: isDark),
         ),
         // Arrow dashed line
         Positioned(
@@ -320,7 +320,7 @@ class _IdentityArt extends StatelessWidget {
               ],
             ),
             child: const Icon(
-              Icons.fingerprint_rounded,
+              Icons.fingerprint_outlined,
               color: Colors.white,
               size: 36,
             ),
@@ -335,27 +335,27 @@ class _IdentityArt extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _GlassTile(
-                icon: Icons.account_balance_wallet_rounded,
+                icon: Icons.account_balance_wallet_outlined,
                 size: 44,
                 isDark: isDark,
               ),
               const SizedBox(width: 8),
               _GlassTile(
-                icon: Icons.directions_bus_rounded,
+                icon: Icons.directions_bus_outlined,
                 size: 44,
                 isDark: isDark,
               ),
               const SizedBox(width: 8),
-              _GlassTile(icon: Icons.flight_rounded, size: 44, isDark: isDark),
+              _GlassTile(icon: Icons.flight_outlined, size: 44, isDark: isDark),
               const SizedBox(width: 8),
               _GlassTile(
-                icon: Icons.shopping_basket_rounded,
+                icon: Icons.shopping_basket_outlined,
                 size: 44,
                 isDark: isDark,
               ),
               const SizedBox(width: 8),
               _GlassTile(
-                icon: Icons.directions_car_rounded,
+                icon: Icons.directions_car_outlined,
                 size: 44,
                 isDark: isDark,
               ),
@@ -376,7 +376,7 @@ class _IdentityArt extends StatelessWidget {
               ),
               child: Text(
                 'One identity \u00b7 15 services',
-                style: GoogleFonts.plusJakartaSans(
+                style: GoogleFonts.inter(
                   fontSize: 10,
                   fontWeight: FontWeight.w600,
                   color: isDark
@@ -399,15 +399,15 @@ class _GridArt extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final icons = [
-      Icons.directions_bus_rounded,
-      Icons.restaurant_rounded,
-      Icons.shopping_basket_rounded,
-      Icons.account_balance_wallet_rounded,
-      Icons.directions_car_rounded,
-      Icons.layers_rounded,
-      Icons.flight_rounded,
-      Icons.smartphone_rounded,
-      Icons.favorite_rounded,
+      Icons.directions_bus_outlined,
+      Icons.restaurant_outlined,
+      Icons.shopping_basket_outlined,
+      Icons.account_balance_wallet_outlined,
+      Icons.directions_car_outlined,
+      Icons.layers_outlined,
+      Icons.flight_outlined,
+      Icons.smartphone_outlined,
+      Icons.favorite_outlined,
     ];
 
     return Center(
@@ -494,7 +494,7 @@ class _HandoffArt extends StatelessWidget {
           top: 90,
           left: 130,
           child: Icon(
-            Icons.arrow_forward_rounded,
+            Icons.arrow_forward_outlined,
             color: AppColors.primary,
             size: 28,
           ),
@@ -519,14 +519,14 @@ class _HandoffArt extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Icon(
-                  Icons.directions_bus_rounded,
+                  Icons.directions_bus_outlined,
                   color: AppColors.primary,
                   size: 32,
                 ),
                 const SizedBox(height: 8),
                 Text(
                   'Bus app',
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 10,
                     fontWeight: FontWeight.w600,
                     color: isDark

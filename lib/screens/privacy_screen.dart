@@ -29,7 +29,7 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
               padding: const EdgeInsets.all(16),
               children: [
                 _PrivacyTile(
-                  icon: Icons.location_on_rounded,
+                  icon: Icons.location_on_outlined,
                   label: 'Location sharing',
                   subtitle: 'Allow OPOOBO to use your location for trips',
                   value: _shareLocation,
@@ -37,7 +37,7 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                   isDark: isDark,
                 ),
                 _PrivacyTile(
-                  icon: Icons.analytics_rounded,
+                  icon: Icons.analytics_outlined,
                   label: 'Usage analytics',
                   subtitle: 'Help improve OPOOBO by sharing anonymous data',
                   value: _shareActivity,
@@ -45,7 +45,7 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                   isDark: isDark,
                 ),
                 _PrivacyTile(
-                  icon: Icons.campaign_rounded,
+                  icon: Icons.campaign_outlined,
                   label: 'Personalized recommendations',
                   subtitle: 'Get suggestions based on your activity',
                   value: _personalizedAds,
@@ -55,7 +55,7 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                 const SizedBox(height: 16),
                 Text(
                   'DATA',
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 11,
                     fontWeight: FontWeight.w700,
                     letterSpacing: 1,
@@ -64,13 +64,13 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                 ),
                 const SizedBox(height: 8),
                 _LinkTile(
-                  icon: Icons.download_rounded,
+                  icon: Icons.download_outlined,
                   label: 'Download my data',
                   isDark: isDark,
                   onTap: () => _showDataDialog(context, 'Download'),
                 ),
                 _LinkTile(
-                  icon: Icons.delete_outline_rounded,
+                  icon: Icons.delete_outline_outlined,
                   label: 'Delete my account',
                   isDark: isDark,
                   color: AppColors.destructive,
@@ -79,7 +79,7 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                 const SizedBox(height: 16),
                 Text(
                   'Your privacy is important to us. We never sell your personal data to third parties.',
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 12,
                     color: AppColors.mutedForeground,
                     height: 1.5,
@@ -170,14 +170,14 @@ class _PrivacyTile extends StatelessWidget {
               children: [
                 Text(
                   label,
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 Text(
                   subtitle,
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 12,
                     color: AppColors.mutedForeground,
                   ),
@@ -230,7 +230,7 @@ class _LinkTile extends StatelessWidget {
             Expanded(
               child: Text(
                 label,
-                style: GoogleFonts.plusJakartaSans(
+                style: GoogleFonts.inter(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
                   color: c,
@@ -238,7 +238,7 @@ class _LinkTile extends StatelessWidget {
               ),
             ),
             Icon(
-              Icons.chevron_right_rounded,
+              Icons.chevron_right_outlined,
               size: 20,
               color: AppColors.mutedForeground,
             ),

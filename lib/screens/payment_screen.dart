@@ -72,7 +72,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                     children: [
                       Text(
                         'Total Amount',
-                        style: GoogleFonts.plusJakartaSans(
+                        style: GoogleFonts.inter(
                           fontSize: 13,
                           color: AppColors.mutedForeground,
                         ),
@@ -80,7 +80,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       const SizedBox(height: 8),
                       Text(
                         '\u20a6${widget.amount}',
-                        style: GoogleFonts.sora(
+                        style: GoogleFonts.inter(
                           fontSize: 36,
                           fontWeight: FontWeight.w800,
                           color: AppColors.primary,
@@ -92,28 +92,28 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 const SizedBox(height: 24),
                 Text(
                   'Payment Method',
-                  style: GoogleFonts.sora(
+                  style: GoogleFonts.inter(
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
                 const SizedBox(height: 12),
                 _MethodTile(
-                  icon: Icons.credit_card_rounded,
+                  icon: Icons.credit_card_outlined,
                   title: 'Debit Card',
                   subtitle: 'Visa, Mastercard, Verve',
                   selected: _method == 'card',
                   onTap: () => setState(() => _method = 'card'),
                 ),
                 _MethodTile(
-                  icon: Icons.account_balance_wallet_rounded,
+                  icon: Icons.account_balance_wallet_outlined,
                   title: 'OPOOBO Wallet',
                   subtitle: 'Pay from your wallet balance',
                   selected: _method == 'wallet',
                   onTap: () => setState(() => _method = 'wallet'),
                 ),
                 _MethodTile(
-                  icon: Icons.phone_android_rounded,
+                  icon: Icons.phone_android_outlined,
                   title: 'USSD',
                   subtitle: 'Pay via USSD banking',
                   selected: _method == 'ussd',
@@ -141,7 +141,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                           )
                         : Text(
                             'Pay \u20a6${widget.amount}',
-                            style: GoogleFonts.plusJakartaSans(
+                            style: GoogleFonts.inter(
                               fontSize: 15,
                               fontWeight: FontWeight.w700,
                               color: Colors.white,
@@ -201,14 +201,14 @@ class _MethodTile extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: GoogleFonts.plusJakartaSans(
+                    style: GoogleFonts.inter(
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   Text(
                     subtitle,
-                    style: GoogleFonts.plusJakartaSans(
+                    style: GoogleFonts.inter(
                       fontSize: 12,
                       color: AppColors.mutedForeground,
                     ),
@@ -217,7 +217,7 @@ class _MethodTile extends StatelessWidget {
               ),
             ),
             if (selected)
-              const Icon(Icons.check_circle_rounded, color: AppColors.primary),
+              const Icon(Icons.check_circle_outlined, color: AppColors.primary),
           ],
         ),
       ),

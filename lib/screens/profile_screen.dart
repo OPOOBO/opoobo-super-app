@@ -7,6 +7,7 @@ import '../providers/auth_provider.dart';
 import '../providers/module_provider.dart';
 import '../providers/theme_provider.dart';
 import '../utils/navigation.dart';
+import 'activity_screen.dart';
 import 'connected_apps_screen.dart';
 import 'payment_methods_screen.dart';
 import 'addresses_screen.dart';
@@ -62,7 +63,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               child: Center(
                 child: Text(
                   auth.initials,
-                  style: GoogleFonts.sora(
+                  style: GoogleFonts.inter(
                     fontSize: 24,
                     fontWeight: FontWeight.w700,
                     color: Colors.white,
@@ -77,7 +78,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Flexible(
                   child: Text(
                     auth.displayName,
-                    style: GoogleFonts.sora(
+                    style: GoogleFonts.inter(
                       fontSize: 20,
                       fontWeight: FontWeight.w800,
                       color: isDark
@@ -89,7 +90,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 const SizedBox(width: 4),
                 const Icon(
-                  Icons.badge_rounded,
+                  Icons.badge_outlined,
                   size: 20,
                   color: AppColors.primary,
                 ),
@@ -98,7 +99,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             const SizedBox(height: 4),
             Text(
               auth.displayEmail,
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 13,
                 fontWeight: FontWeight.w500,
                 color: isDark
@@ -109,7 +110,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             const SizedBox(height: 2),
             Text(
               auth.displayPhone.isNotEmpty ? auth.displayPhone : 'No phone set',
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 13,
                 fontWeight: FontWeight.w500,
                 color: isDark
@@ -141,7 +142,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     child: Text(
                       '${auth.memberTierLabel} Member',
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 11,
                         fontWeight: FontWeight.w700,
                         color: AppColors.primary,
@@ -154,7 +155,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             const SizedBox(height: 24),
             // Dark mode toggle
             _SettingsTile(
-              icon: Icons.dark_mode_rounded,
+              icon: Icons.dark_mode_outlined,
               label: 'Dark mode',
               trailing: Switch(
                 value: isDark,
@@ -169,7 +170,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
             // Account section
             _SectionLabel(label: 'ACCOUNT', isDark: isDark),
             _SettingsTile(
-              icon: Icons.grid_view_rounded,
+              icon: Icons.receipt_long_outlined,
+              label: 'Activity',
+              isDark: isDark,
+              onTap: () =>
+                  NavigationHelper.push(context, const ActivityScreen()),
+            ),
+            _SettingsTile(
+              icon: Icons.grid_view_outlined,
               label: 'Connected apps',
               trailingText:
                   '${context.read<ModuleProvider>().modules.length}',
@@ -178,21 +186,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   NavigationHelper.push(context, const ConnectedAppsScreen()),
             ),
             _SettingsTile(
-              icon: Icons.credit_card_rounded,
+              icon: Icons.credit_card_outlined,
               label: 'Payment methods',
               isDark: isDark,
               onTap: () =>
                   NavigationHelper.push(context, const PaymentMethodsScreen()),
             ),
             _SettingsTile(
-              icon: Icons.home_rounded,
+              icon: Icons.home_outlined,
               label: 'Addresses',
               isDark: isDark,
               onTap: () =>
                   NavigationHelper.push(context, const AddressesScreen()),
             ),
             _SettingsTile(
-              icon: Icons.location_on_rounded,
+              icon: Icons.location_on_outlined,
               label: 'Saved locations',
               isDark: isDark,
               onTap: () => NavigationHelper.push(
@@ -202,21 +210,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
             // Security section
             _SectionLabel(label: 'SECURITY & PRIVACY', isDark: isDark),
             _SettingsTile(
-              icon: Icons.shield_rounded,
+              icon: Icons.shield_outlined,
               label: 'Security settings',
               isDark: isDark,
               onTap: () => NavigationHelper.push(
                   context, const SecuritySettingsScreen()),
             ),
             _SettingsTile(
-              icon: Icons.lock_rounded,
+              icon: Icons.lock_outlined,
               label: 'Privacy',
               isDark: isDark,
               onTap: () =>
                   NavigationHelper.push(context, const PrivacyScreen()),
             ),
             _SettingsTile(
-              icon: Icons.language_rounded,
+              icon: Icons.language_outlined,
               label: 'Language',
               trailingText: 'English NG',
               isDark: isDark,
@@ -227,14 +235,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
             // Support section
             _SectionLabel(label: 'SUPPORT', isDark: isDark),
             _SettingsTile(
-              icon: Icons.help_outline_rounded,
+              icon: Icons.help_outline_outlined,
               label: 'Help Center',
               isDark: isDark,
               onTap: () =>
                   NavigationHelper.push(context, const HelpCenterScreen()),
             ),
             _SettingsTile(
-              icon: Icons.info_rounded,
+              icon: Icons.info_outlined,
               label: 'About OPOOBO',
               trailingText: 'v1.0.0',
               isDark: isDark,
@@ -272,14 +280,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         )
                       else
                         const Icon(
-                          Icons.logout_rounded,
+                          Icons.logout_outlined,
                           size: 20,
                           color: AppColors.destructive,
                         ),
                       const SizedBox(width: 8),
                       Text(
                         _loggingOut ? 'Logging out...' : 'Log out',
-                        style: GoogleFonts.plusJakartaSans(
+                        style: GoogleFonts.inter(
                           fontSize: 14,
                           fontWeight: FontWeight.w700,
                           color: AppColors.destructive,
@@ -293,7 +301,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             const SizedBox(height: 16),
             Text(
               'OPOOBO \u00b7 v1.0.0 (build 240)',
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 10,
                 fontWeight: FontWeight.w500,
                 color: isDark
@@ -337,7 +345,7 @@ class _InfoChip extends StatelessWidget {
       ),
       child: Text(
         label,
-        style: GoogleFonts.plusJakartaSans(
+        style: GoogleFonts.inter(
           fontSize: 11,
           fontWeight: FontWeight.w600,
           color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -359,7 +367,7 @@ class _SectionLabel extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(20, 8, 20, 6),
       child: Text(
         label,
-        style: GoogleFonts.plusJakartaSans(
+        style: GoogleFonts.inter(
           fontSize: 10,
           fontWeight: FontWeight.w700,
           letterSpacing: 1,
@@ -426,7 +434,7 @@ class _SettingsTile extends StatelessWidget {
               Expanded(
                 child: Text(
                   label,
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
                     color: isDark
@@ -439,7 +447,7 @@ class _SettingsTile extends StatelessWidget {
               if (trailingText != null)
                 Text(
                   trailingText!,
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
                     color: isDark
@@ -449,7 +457,7 @@ class _SettingsTile extends StatelessWidget {
                 ),
               const SizedBox(width: 6),
               Icon(
-                Icons.chevron_right_rounded,
+                Icons.chevron_right_outlined,
                 size: 20,
                 color: isDark
                     ? AppColors.darkMutedForeground

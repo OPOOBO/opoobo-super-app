@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../theme/app_colors.dart';
 import '../providers/module_provider.dart';
+import '../widgets/line_icon.dart';
 import '../widgets/screen_header.dart';
 import 'module_registration_screen.dart';
 import 'bus_module_screen.dart';
@@ -138,7 +139,13 @@ class _ModuleTile extends StatelessWidget {
                 gradient: AppColors.gradientPrimary,
                 borderRadius: BorderRadius.circular(14),
               ),
-              child: Icon(_getIcon(module.name), color: Colors.white, size: 24),
+              child: Center(
+                child: ModuleLineIcon(
+                  moduleName: module.name,
+                  size: 24,
+                  color: Colors.white,
+                ),
+              ),
             ),
             const SizedBox(width: 14),
             Expanded(
@@ -150,7 +157,7 @@ class _ModuleTile extends StatelessWidget {
                       Expanded(
                         child: Text(
                           module.displayName,
-                          style: GoogleFonts.plusJakartaSans(
+                          style: GoogleFonts.inter(
                             fontSize: 15,
                             fontWeight: FontWeight.w700,
                             color: isDark
@@ -171,7 +178,7 @@ class _ModuleTile extends StatelessWidget {
                           ),
                           child: Text(
                             'Coming soon',
-                            style: GoogleFonts.plusJakartaSans(
+                            style: GoogleFonts.inter(
                               fontSize: 9,
                               fontWeight: FontWeight.w700,
                               color: AppColors.warningForeground,
@@ -190,7 +197,7 @@ class _ModuleTile extends StatelessWidget {
                           ),
                           child: Text(
                             'Linked',
-                            style: GoogleFonts.plusJakartaSans(
+                            style: GoogleFonts.inter(
                               fontSize: 9,
                               fontWeight: FontWeight.w700,
                               color: Colors.green,
@@ -202,7 +209,7 @@ class _ModuleTile extends StatelessWidget {
                   const SizedBox(height: 5),
                   Text(
                     module.description ?? '',
-                    style: GoogleFonts.plusJakartaSans(
+                    style: GoogleFonts.inter(
                       fontSize: 12,
                       height: 1.45,
                       color: isDark
@@ -234,7 +241,7 @@ class _ModuleTile extends StatelessWidget {
                       : module.isLinked
                       ? 'Open'
                       : 'Connect',
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 12,
                     fontWeight: FontWeight.w700,
                     color: isComingSoon
@@ -250,21 +257,6 @@ class _ModuleTile extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  IconData _getIcon(String name) {
-    switch (name) {
-      case 'bus':
-        return Icons.directions_bus_rounded;
-      case 'market':
-        return Icons.shopping_cart_rounded;
-      case 'go':
-        return Icons.directions_car_rounded;
-      case 'mall':
-        return Icons.storefront_rounded;
-      default:
-        return Icons.apps_rounded;
-    }
   }
 }
 
@@ -312,7 +304,7 @@ class _ComingSoonDialog extends StatelessWidget {
                 borderRadius: BorderRadius.circular(14),
               ),
               child: const Icon(
-                Icons.schedule_rounded,
+                Icons.schedule_outlined,
                 color: AppColors.primary,
                 size: 26,
               ),
@@ -320,7 +312,7 @@ class _ComingSoonDialog extends StatelessWidget {
             const SizedBox(height: 16),
             Text(
               '${module.displayName} is coming soon',
-              style: GoogleFonts.sora(
+              style: GoogleFonts.inter(
                 fontSize: 17,
                 fontWeight: FontWeight.w800,
                 color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -329,7 +321,7 @@ class _ComingSoonDialog extends StatelessWidget {
             const SizedBox(height: 6),
             Text(
               'While you wait, visit us on the web or get the app from your app store.',
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 13,
                 height: 1.4,
                 color: isDark
@@ -349,7 +341,7 @@ class _ComingSoonDialog extends StatelessWidget {
               child: Row(
                 children: [
                   const Icon(
-                    Icons.link_rounded,
+                    Icons.link_outlined,
                     size: 16,
                     color: AppColors.primary,
                   ),
@@ -357,7 +349,7 @@ class _ComingSoonDialog extends StatelessWidget {
                   Expanded(
                     child: Text(
                       websiteUrl,
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 13,
                         fontWeight: FontWeight.w600,
                         color: AppColors.primary,
@@ -368,7 +360,7 @@ class _ComingSoonDialog extends StatelessWidget {
                   GestureDetector(
                     onTap: () => _copyLink(context),
                     child: const Icon(
-                      Icons.copy_rounded,
+                      Icons.copy_outlined,
                       size: 16,
                       color: AppColors.primary,
                     ),
@@ -384,7 +376,7 @@ class _ComingSoonDialog extends StatelessWidget {
                     onPressed: () => Navigator.pop(context),
                     child: Text(
                       'Not now',
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 13,
                         fontWeight: FontWeight.w600,
                         color: isDark
@@ -417,7 +409,7 @@ class _ComingSoonDialog extends StatelessWidget {
                       alignment: Alignment.center,
                       child: Text(
                         'Visit website',
-                        style: GoogleFonts.plusJakartaSans(
+                        style: GoogleFonts.inter(
                           fontSize: 13,
                           fontWeight: FontWeight.w700,
                           color: Colors.white,

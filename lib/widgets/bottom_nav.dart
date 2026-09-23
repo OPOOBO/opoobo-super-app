@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../theme/app_colors.dart';
+import 'line_icon.dart';
 
 class BottomNav extends StatelessWidget {
   final int currentIndex;
@@ -11,114 +11,79 @@ class BottomNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    final items = [
-      _NavItem(icon: Icons.home_rounded, label: 'Home'),
-      _NavItem(icon: Icons.layers_rounded, label: 'Services'),
-      _NavItem(icon: Icons.receipt_long_rounded, label: 'Activity'),
-      _NavItem(icon: Icons.person_rounded, label: 'Profile'),
+    const items = [
+      _NavItem(icon: 'home', label: 'Home'),
+      _NavItem(icon: 'scan', label: 'Scan'),
+      _NavItem(icon: 'services', label: 'Services'),
+      _NavItem(icon: 'profile', label: 'Profile'),
     ];
 
+    final inactive = isDark
+        ? AppColors.darkMutedForeground
+        : AppColors.mutedForeground;
+
     return Container(
-      padding: EdgeInsets.only(
-        left: 12,
-        right: 12,
-        bottom: MediaQuery.of(context).padding.bottom + 12,
-      ),
-      child: Container(
-        padding: const EdgeInsets.all(8),
-        decoration: BoxDecoration(
-          color: isDark ? AppColors.darkSurface : AppColors.glassStrong,
-          border: Border.all(
-            color: isDark ? AppColors.darkGlassBorder : AppColors.glassBorder,
+      decoration: BoxDecoration(
+        color: isDark ? AppColors.darkSurface : AppColors.surface,
+        border: Border(
+          top: BorderSide(
+            color: isDark ? AppColors.darkBorder : AppColors.border,
           ),
-          borderRadius: BorderRadius.circular(24),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.08),
-              blurRadius: 8,
-              offset: const Offset(0, 2),
-            ),
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.12),
-              blurRadius: 32,
-              offset: const Offset(0, 12),
-            ),
-          ],
         ),
-        child: Row(
-          children: List.generate(items.length, (index) {
-            final item = items[index];
-            final isActive = index == currentIndex;
-            return Expanded(
-              child: GestureDetector(
-                onTap: () => onTap(index),
-                behavior: HitTestBehavior.opaque,
-                child: SizedBox(
-                  height: 56,
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      if (isActive)
-                        Positioned.fill(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              gradient: AppColors.gradientPrimary,
-                              borderRadius: BorderRadius.circular(16),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: AppColors.primary.withValues(
-                                    alpha: 0.45,
-                                  ),
-                                  blurRadius: 34,
-                                  offset: const Offset(0, 10),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            item.icon,
-                            size: 22,
-                            color: isActive
-                                ? Colors.white
-                                : (isDark
-                                      ? AppColors.darkMutedForeground
-                                      : AppColors.mutedForeground),
-                          ),
-                          const SizedBox(height: 2),
-                          Text(
-                            item.label,
-                            style: GoogleFonts.plusJakartaSans(
-                              fontSize: 10.5,
-                              fontWeight: FontWeight.w600,
-                              color: isActive
-                                  ? Colors.white
-                                  : (isDark
-                                        ? AppColors.darkMutedForeground
-                                        : AppColors.mutedForeground),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.06),
+            blurRadius: 16,
+            offset: const Offset(0, -4),
+          ),
+        ],
+      ),
+      padding: EdgeInsets.only(
+        left: 8,
+        right: 8,
+        top: 8,
+        bottom: MediaQuery.of(context).padding.bottom + 10,
+      ),
+      child: Row(
+        children: List.generate(items.length, (index) {
+          final item = items[index];
+          final isActive = index == currentIndex;
+          final color = isActive ? AppColors.primary : inactive;
+          return Expanded(
+            child: GestureDetector(
+              onTap: () => onTap(index),
+              behavior: HitTestBehavior.opaque,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  LineIcon(
+                    name: item.icon,
+                    size: 22,
+                    color: color,
+                    strokeWidth: 1.8,
                   ),
-                ),
+                  const SizedBox(height: 4),
+                  Text(
+                    item.label,
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w600,
+                      color: color,
+                    ),
+                  ),
+                ],
               ),
-            );
-          }),
-        ),
+            ),
+          );
+        }),
       ),
     );
   }
 }
 
 class _NavItem {
-  final IconData icon;
+  final String icon;
   final String label;
 
-  _NavItem({required this.icon, required this.label});
+  const _NavItem({required this.icon, required this.label});
 }

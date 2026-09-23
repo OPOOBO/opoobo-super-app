@@ -54,7 +54,7 @@ class _AddressesScreenState extends State<AddressesScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () => _showAddDialog(),
         backgroundColor: AppColors.primary,
-        child: const Icon(Icons.add_rounded, color: Colors.white),
+        child: const Icon(Icons.add_outlined, color: Colors.white),
       ),
     );
   }
@@ -142,9 +142,9 @@ class _EmptyState extends StatelessWidget {
         children: [
           Icon(Icons.home_outlined, size: 64, color: AppColors.mutedForeground),
           const SizedBox(height: 12),
-          Text('No addresses yet', style: GoogleFonts.plusJakartaSans(fontSize: 15, color: AppColors.mutedForeground)),
+          Text('No addresses yet', style: GoogleFonts.inter(fontSize: 15, color: AppColors.mutedForeground)),
           const SizedBox(height: 4),
-          Text('Tap + to add your first address', style: GoogleFonts.plusJakartaSans(fontSize: 12, color: AppColors.mutedForeground)),
+          Text('Tap + to add your first address', style: GoogleFonts.inter(fontSize: 12, color: AppColors.mutedForeground)),
         ],
       ),
     );
@@ -188,7 +188,7 @@ class _AddressTile extends StatelessWidget {
               color: AppColors.primary.withValues(alpha: 0.12),
               borderRadius: BorderRadius.circular(12),
             ),
-            child: const Icon(Icons.home_rounded, color: AppColors.primary, size: 22),
+            child: const Icon(Icons.home_outlined, color: AppColors.primary, size: 22),
           ),
           const SizedBox(width: 12),
           Expanded(
@@ -197,19 +197,19 @@ class _AddressTile extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Text(address.label, style: GoogleFonts.plusJakartaSans(fontSize: 14, fontWeight: FontWeight.w700)),
+                    Text(address.label, style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.w700)),
                     if (address.isDefault) ...[
                       const SizedBox(width: 8),
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                         decoration: BoxDecoration(color: AppColors.primarySoft, borderRadius: BorderRadius.circular(6)),
-                        child: Text('Default', style: GoogleFonts.plusJakartaSans(fontSize: 10, fontWeight: FontWeight.w700, color: AppColors.primary)),
+                        child: Text('Default', style: GoogleFonts.inter(fontSize: 10, fontWeight: FontWeight.w700, color: AppColors.primary)),
                       ),
                     ],
                   ],
                 ),
                 const SizedBox(height: 2),
-                Text(address.fullAddress, style: GoogleFonts.plusJakartaSans(fontSize: 12, color: AppColors.mutedForeground)),
+                Text(address.fullAddress, style: GoogleFonts.inter(fontSize: 12, color: AppColors.mutedForeground)),
               ],
             ),
           ),

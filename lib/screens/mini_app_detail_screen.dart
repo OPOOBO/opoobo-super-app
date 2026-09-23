@@ -80,10 +80,10 @@ class _MiniAppDetailScreenState extends State<MiniAppDetailScreen> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(Icons.cloud_off_rounded, size: 48,
+          Icon(Icons.cloud_off_outlined, size: 48,
               color: isDark ? AppColors.darkMutedForeground : AppColors.mutedForeground),
           const SizedBox(height: 12),
-          Text(_error!, style: GoogleFonts.plusJakartaSans(
+          Text(_error!, style: GoogleFonts.inter(
               fontSize: 14,
               color: isDark ? AppColors.darkMutedForeground : AppColors.mutedForeground)),
           const SizedBox(height: 16),
@@ -110,7 +110,7 @@ class _MiniAppDetailScreenState extends State<MiniAppDetailScreen> {
                   children: [
                     Text(
                       m.displayName,
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 20,
                         fontWeight: FontWeight.w800,
                         color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -120,7 +120,7 @@ class _MiniAppDetailScreenState extends State<MiniAppDetailScreen> {
                     if (m.developerName != null)
                       Text(
                         m.developerName!,
-                        style: GoogleFonts.plusJakartaSans(
+                        style: GoogleFonts.inter(
                           fontSize: 13,
                           color: isDark ? AppColors.darkMutedForeground : AppColors.mutedForeground,
                         ),
@@ -128,7 +128,7 @@ class _MiniAppDetailScreenState extends State<MiniAppDetailScreen> {
                     const SizedBox(height: 2),
                     Text(
                       'v${m.version ?? '1.0.0'}',
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 12,
                         color: isDark ? AppColors.darkMutedForeground : AppColors.mutedForeground,
                       ),
@@ -149,12 +149,12 @@ class _MiniAppDetailScreenState extends State<MiniAppDetailScreen> {
             ),
             child: Row(
               children: [
-                Icon(Icons.download_rounded, size: 16,
+                Icon(Icons.download_outlined, size: 16,
                     color: isDark ? AppColors.darkMutedForeground : AppColors.mutedForeground),
                 const SizedBox(width: 6),
                 Text(
                   '${_formatCount(m.installCount)} installs',
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
                     color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -172,7 +172,7 @@ class _MiniAppDetailScreenState extends State<MiniAppDetailScreen> {
           // Description
           Text(
             'About',
-            style: GoogleFonts.plusJakartaSans(
+            style: GoogleFonts.inter(
               fontSize: 15,
               fontWeight: FontWeight.w800,
               color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -181,7 +181,7 @@ class _MiniAppDetailScreenState extends State<MiniAppDetailScreen> {
           const SizedBox(height: 8),
           Text(
             m.description ?? '',
-            style: GoogleFonts.plusJakartaSans(
+            style: GoogleFonts.inter(
               fontSize: 13,
               height: 1.5,
               color: isDark ? AppColors.darkMutedForeground : AppColors.mutedForeground,
@@ -193,7 +193,7 @@ class _MiniAppDetailScreenState extends State<MiniAppDetailScreen> {
           if (screenshots.isNotEmpty) ...[
             Text(
               'Screenshots',
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 15,
                 fontWeight: FontWeight.w800,
                 color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -216,7 +216,7 @@ class _MiniAppDetailScreenState extends State<MiniAppDetailScreen> {
                       width: 120,
                       height: 200,
                       color: isDark ? AppColors.darkSurface : AppColors.secondary,
-                      child: Icon(Icons.image_rounded,
+                      child: Icon(Icons.image_outlined,
                           color: isDark ? AppColors.darkMutedForeground : AppColors.mutedForeground),
                     ),
                   ),
@@ -240,7 +240,7 @@ class _MiniAppDetailScreenState extends State<MiniAppDetailScreen> {
               ),
               child: Text(
                 'Open App',
-                style: GoogleFonts.plusJakartaSans(
+                style: GoogleFonts.inter(
                   fontSize: 15,
                   fontWeight: FontWeight.w700,
                 ),
@@ -268,7 +268,7 @@ class _MiniAppDetailScreenState extends State<MiniAppDetailScreen> {
         children: [
           Text(
             'Compliance',
-            style: GoogleFonts.plusJakartaSans(
+            style: GoogleFonts.inter(
               fontSize: 13,
               fontWeight: FontWeight.w700,
               color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -293,14 +293,14 @@ class _MiniAppDetailScreenState extends State<MiniAppDetailScreen> {
     return Row(
       children: [
         Icon(
-          passed ? Icons.check_circle_rounded : Icons.cancel_rounded,
+          passed ? Icons.check_circle_outlined : Icons.cancel_outlined,
           size: 16,
           color: passed ? const Color(0xFF2D9F6F) : const Color(0xFFEF4444),
         ),
         const SizedBox(width: 8),
         Text(
           label,
-          style: GoogleFonts.plusJakartaSans(
+          style: GoogleFonts.inter(
             fontSize: 12,
             color: isDark ? AppColors.darkMutedForeground : AppColors.mutedForeground,
           ),
@@ -350,15 +350,15 @@ class _MiniAppDetailScreenState extends State<MiniAppDetailScreen> {
 
   IconData _getIcon(String? name) {
     switch (name) {
-      case 'directions_bus_rounded': return Icons.directions_bus_rounded;
-      case 'shopping_cart_rounded': return Icons.shopping_cart_rounded;
-      case 'directions_car_rounded': return Icons.directions_car_rounded;
-      case 'storefront_rounded': return Icons.storefront_rounded;
-      case 'account_balance_wallet_rounded': return Icons.account_balance_wallet_rounded;
-      case 'card_giftcard_rounded': return Icons.card_giftcard_rounded;
-      case 'play_circle_outline_rounded': return Icons.play_circle_outline_rounded;
-      case 'work_outline_rounded': return Icons.work_outline_rounded;
-      default: return Icons.widgets_rounded;
+      case 'directions_bus_rounded': return Icons.directions_bus_outlined;
+      case 'shopping_cart_rounded': return Icons.shopping_cart_outlined;
+      case 'directions_car_rounded': return Icons.directions_car_outlined;
+      case 'storefront_rounded': return Icons.storefront_outlined;
+      case 'account_balance_wallet_rounded': return Icons.account_balance_wallet_outlined;
+      case 'card_giftcard_rounded': return Icons.card_giftcard_outlined;
+      case 'play_circle_outline_rounded': return Icons.play_circle_outline_outlined;
+      case 'work_outline_rounded': return Icons.work_outline_outlined;
+      default: return Icons.widgets_outlined;
     }
   }
 }

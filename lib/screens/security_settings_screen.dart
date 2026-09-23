@@ -44,7 +44,7 @@ class _SecuritySettingsScreenState extends State<SecuritySettingsScreen> {
                     padding: const EdgeInsets.all(16),
                     children: [
                       _SecurityTile(
-                        icon: Icons.fingerprint_rounded,
+                        icon: Icons.fingerprint_outlined,
                         label: 'Biometric login',
                         subtitle: 'Use fingerprint or face to sign in',
                         trailing: Switch(
@@ -55,7 +55,7 @@ class _SecuritySettingsScreenState extends State<SecuritySettingsScreen> {
                         isDark: isDark,
                       ),
                       _SecurityTile(
-                        icon: Icons.security_rounded,
+                        icon: Icons.security_outlined,
                         label: 'Two-factor authentication',
                         subtitle: 'Add an extra layer of security',
                         trailing: Switch(
@@ -69,7 +69,7 @@ class _SecuritySettingsScreenState extends State<SecuritySettingsScreen> {
                       _SectionHeader(label: 'SESSIONS', isDark: isDark),
                       if (current != null)
                         _SecurityTile(
-                          icon: Icons.phone_android_rounded,
+                          icon: Icons.phone_android_outlined,
                           label: current.deviceLabel,
                           subtitle: '${current.location ?? "Unknown location"} \u00b7 Current session',
                           badge: 'Current',
@@ -78,15 +78,15 @@ class _SecuritySettingsScreenState extends State<SecuritySettingsScreen> {
                       ...sessions.where((s) => !s.isCurrent).map(
                         (s) => _SecurityTile(
                           icon: s.deviceType == 'desktop'
-                              ? Icons.laptop_mac_rounded
-                              : Icons.phone_android_rounded,
+                              ? Icons.laptop_mac_outlined
+                              : Icons.phone_android_outlined,
                           label: s.deviceLabel,
                           subtitle: [
                             if (s.location != null) s.location,
                             if (s.lastActiveAt != null)
                               'Last active ${_timeAgo(s.lastActiveAt!)}',
                           ].join(' \u00b7 '),
-                          trailingIcon: Icons.logout_rounded,
+                          trailingIcon: Icons.logout_outlined,
                           isDark: isDark,
                           onTap: () => _revokeSession(s),
                         ),
@@ -94,7 +94,7 @@ class _SecuritySettingsScreenState extends State<SecuritySettingsScreen> {
                       const SizedBox(height: 16),
                       _SectionHeader(label: 'AUTHENTICATION', isDark: isDark),
                       _SecurityTile(
-                        icon: Icons.key_rounded,
+                        icon: Icons.key_outlined,
                         label: 'Change password',
                         isDark: isDark,
                         onTap: () => _showComingSoon('Change password'),
@@ -201,19 +201,19 @@ class _SecurityTile extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Flexible(child: Text(label, style: GoogleFonts.plusJakartaSans(fontSize: 14, fontWeight: FontWeight.w600), overflow: TextOverflow.ellipsis)),
+                      Flexible(child: Text(label, style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.w600), overflow: TextOverflow.ellipsis)),
                       if (badge != null) ...[
                         const SizedBox(width: 8),
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                           decoration: BoxDecoration(color: AppColors.success.withValues(alpha: 0.15), borderRadius: BorderRadius.circular(6)),
-                          child: Text(badge!, style: GoogleFonts.plusJakartaSans(fontSize: 10, fontWeight: FontWeight.w700, color: AppColors.success)),
+                          child: Text(badge!, style: GoogleFonts.inter(fontSize: 10, fontWeight: FontWeight.w700, color: AppColors.success)),
                         ),
                       ],
                     ],
                   ),
                   if (subtitle != null && subtitle!.isNotEmpty)
-                    Text(subtitle!, style: GoogleFonts.plusJakartaSans(fontSize: 12, color: AppColors.mutedForeground), maxLines: 1, overflow: TextOverflow.ellipsis),
+                    Text(subtitle!, style: GoogleFonts.inter(fontSize: 12, color: AppColors.mutedForeground), maxLines: 1, overflow: TextOverflow.ellipsis),
                 ],
               ),
             ),
@@ -221,7 +221,7 @@ class _SecurityTile extends StatelessWidget {
             if (trailingIcon != null)
               Icon(trailingIcon, size: 20, color: AppColors.mutedForeground),
             if (trailing == null && trailingIcon == null && onTap != null)
-              Icon(Icons.chevron_right_rounded, size: 20, color: AppColors.mutedForeground),
+              Icon(Icons.chevron_right_outlined, size: 20, color: AppColors.mutedForeground),
           ],
         ),
       ),
@@ -241,7 +241,7 @@ class _SectionHeader extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Text(
         label,
-        style: GoogleFonts.plusJakartaSans(fontSize: 11, fontWeight: FontWeight.w700, letterSpacing: 1, color: AppColors.mutedForeground),
+        style: GoogleFonts.inter(fontSize: 11, fontWeight: FontWeight.w700, letterSpacing: 1, color: AppColors.mutedForeground),
       ),
     );
   }

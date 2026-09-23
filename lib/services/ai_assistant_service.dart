@@ -88,4 +88,57 @@ class AiAssistantService {
       );
     }
   }
+
+  Future<ProductScanResult> scanProduct(String filePath) async {
+    try {
+      final res = await _dio.post(
+        '/ai/scan',
+        data: FormData.fromMap({
+          'image': await MultipartFile.fromFile(filePath, filename: 'scan.jpg'),
+        }),
+      );
+      final body = res.data;
+      if (body is! Map || body['success'] != true || body['data'] is! Map) {
+        throw DioException(
+          requestOptions: res.requestOptions,
+          message: body is Map
+              ? (body['message']?.toString() ?? 'Product description is unavailable.')
+              : 'Product description is unavailable.',
+        );
+      }
+      return ProductScanResult.fromJson(
+        Map<String, dynamic>.from(body['data'] as Map),
+      );
+    } on DioException catch (e) {
+      final data = e.response?.data;
+      if (data is Map && data['message'] != null) {
+        throw DioException(
+          requestOptions: e.requestOptions,
+          response: e.response,
+          message: data['message'].toString(),
+        );
+      }
+      rethrow;
+    }
+  }
+}
+
+class ProductScanResult {
+  final String name;
+  final String description;
+  final String priceNote;
+
+  const ProductScanResult({
+    required this.name,
+    required this.description,
+    required this.priceNote,
+  });
+
+  factory ProductScanResult.fromJson(Map<String, dynamic> json) {
+    return ProductScanResult(
+      name: (json['name'] ?? '').toString(),
+      description: (json['description'] ?? '').toString(),
+      priceNote: (json['price_note'] ?? '').toString(),
+    );
+  }
 }

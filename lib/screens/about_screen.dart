@@ -31,7 +31,7 @@ class AboutScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(24),
                     ),
                     child: const Icon(
-                      Icons.apps_rounded,
+                      Icons.apps_outlined,
                       color: Colors.white,
                       size: 40,
                     ),
@@ -41,7 +41,7 @@ class AboutScreen extends StatelessWidget {
                 Center(
                   child: Text(
                     'OPOOBO',
-                    style: GoogleFonts.sora(
+                    style: GoogleFonts.inter(
                       fontSize: 28,
                       fontWeight: FontWeight.w800,
                     ),
@@ -50,7 +50,7 @@ class AboutScreen extends StatelessWidget {
                 Center(
                   child: Text(
                     'One identity. Every service.',
-                    style: GoogleFonts.plusJakartaSans(
+                    style: GoogleFonts.inter(
                       fontSize: 14,
                       color: AppColors.mutedForeground,
                     ),
@@ -65,7 +65,7 @@ class AboutScreen extends StatelessWidget {
                 const SizedBox(height: 24),
                 Text(
                   'OPOOBO brings all your daily services under one roof — bus travel, marketplace, wallet, and more. One login, one identity, everything connected.',
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 13,
                     color: AppColors.mutedForeground,
                     height: 1.6,
@@ -96,7 +96,7 @@ class AboutScreen extends StatelessWidget {
                 const SizedBox(height: 40),
                 Text(
                   '\u00a9 2026 OPOOBO. All rights reserved.',
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 11,
                     color: AppColors.mutedForeground,
                   ),
@@ -131,14 +131,14 @@ class _InfoRow extends StatelessWidget {
         children: [
           Text(
             label,
-            style: GoogleFonts.plusJakartaSans(
+            style: GoogleFonts.inter(
               fontSize: 14,
               color: AppColors.mutedForeground,
             ),
           ),
           Text(
             value,
-            style: GoogleFonts.plusJakartaSans(
+            style: GoogleFonts.inter(
               fontSize: 14,
               fontWeight: FontWeight.w600,
             ),
@@ -176,14 +176,14 @@ class _LinkRow extends StatelessWidget {
             Expanded(
               child: Text(
                 label,
-                style: GoogleFonts.plusJakartaSans(
+                style: GoogleFonts.inter(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
                 ),
               ),
             ),
             Icon(
-              Icons.chevron_right_rounded,
+              Icons.chevron_right_outlined,
               size: 20,
               color: AppColors.mutedForeground,
             ),

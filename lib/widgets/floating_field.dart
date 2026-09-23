@@ -101,7 +101,7 @@ class _FloatingFieldState extends State<FloatingField> {
                       left: widget.icon != null ? 42 : 16,
                       child: AnimatedDefaultTextStyle(
                         duration: const Duration(milliseconds: 200),
-                        style: GoogleFonts.plusJakartaSans(
+                        style: GoogleFonts.inter(
                           fontSize: showLabel ? 10 : 14,
                           fontWeight: FontWeight.w600,
                           color: focused
@@ -126,7 +126,7 @@ class _FloatingFieldState extends State<FloatingField> {
                         keyboardType: widget.keyboardType,
                         obscureText: widget.obscure && _obscured,
                         maxLines: widget.maxLines,
-                        style: GoogleFonts.plusJakartaSans(
+                        style: GoogleFonts.inter(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
                           color: isDark
@@ -152,8 +152,8 @@ class _FloatingFieldState extends State<FloatingField> {
                     padding: const EdgeInsets.only(right: 14),
                     child: Icon(
                       _obscured
-                          ? Icons.visibility_off_rounded
-                          : Icons.visibility_rounded,
+                          ? Icons.visibility_off_outlined
+                          : Icons.visibility_outlined,
                       size: 20,
                       color: isDark
                           ? AppColors.darkMutedForeground

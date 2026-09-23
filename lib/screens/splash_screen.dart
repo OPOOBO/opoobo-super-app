@@ -172,7 +172,7 @@ class _SplashScreenState extends State<SplashScreen>
                     const SizedBox(height: 10),
                     Text(
                       'LOADING SERVICES',
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 9,
                         fontWeight: FontWeight.w700,
                         letterSpacing: 1.5,

@@ -135,7 +135,7 @@ class _BoardingPointsScreenState extends State<BoardingPointsScreen> {
                                       )
                                     : Text(
                                         'Continue to Package Selection',
-                                        style: GoogleFonts.plusJakartaSans(
+                                        style: GoogleFonts.inter(
                                           fontSize: 15,
                                           fontWeight: FontWeight.w700,
                                           color: Colors.white,
@@ -157,7 +157,7 @@ class _BoardingPointsScreenState extends State<BoardingPointsScreen> {
   Widget _buildSectionTitle(String title, bool isDark) {
     return Text(
       title,
-      style: GoogleFonts.sora(
+      style: GoogleFonts.inter(
         fontSize: 16,
         fontWeight: FontWeight.w800,
         color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -201,7 +201,7 @@ class _BoardingPointsScreenState extends State<BoardingPointsScreen> {
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Icon(
-                Icons.location_on_rounded,
+                Icons.location_on_outlined,
                 size: 20,
                 color: isSelected
                     ? AppColors.primary
@@ -217,7 +217,7 @@ class _BoardingPointsScreenState extends State<BoardingPointsScreen> {
                 children: [
                   Text(
                     title,
-                    style: GoogleFonts.plusJakartaSans(
+                    style: GoogleFonts.inter(
                       fontSize: 14,
                       fontWeight: FontWeight.w700,
                       color: isDark
@@ -227,7 +227,7 @@ class _BoardingPointsScreenState extends State<BoardingPointsScreen> {
                   ),
                   Text(
                     '$time \u00b7 $address',
-                    style: GoogleFonts.plusJakartaSans(
+                    style: GoogleFonts.inter(
                       fontSize: 11,
                       fontWeight: FontWeight.w500,
                       color: isDark
@@ -242,7 +242,7 @@ class _BoardingPointsScreenState extends State<BoardingPointsScreen> {
             ),
             if (isSelected)
               const Icon(
-                Icons.check_circle_rounded,
+                Icons.check_circle_outlined,
                 size: 22,
                 color: AppColors.primary,
               ),

@@ -60,14 +60,14 @@ class _LanguageScreenState extends State<LanguageScreen> {
                             children: [
                               Text(
                                 lang['name']!,
-                                style: GoogleFonts.plusJakartaSans(
+                                style: GoogleFonts.inter(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
                               Text(
                                 lang['native']!,
-                                style: GoogleFonts.plusJakartaSans(
+                                style: GoogleFonts.inter(
                                   fontSize: 12,
                                   color: AppColors.mutedForeground,
                                 ),
@@ -77,7 +77,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                         ),
                         if (isSelected)
                           const Icon(
-                            Icons.check_circle_rounded,
+                            Icons.check_circle_outlined,
                             color: AppColors.primary,
                             size: 22,
                           ),

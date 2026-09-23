@@ -40,7 +40,7 @@ class BookingSuccessScreen extends StatelessWidget {
                         shape: BoxShape.circle,
                       ),
                       child: const Icon(
-                        Icons.check_rounded,
+                        Icons.check_outlined,
                         color: Colors.white,
                         size: 40,
                       ),
@@ -48,7 +48,7 @@ class BookingSuccessScreen extends StatelessWidget {
                     const SizedBox(height: 16),
                     Text(
                       'Booking Successful!',
-                      style: GoogleFonts.sora(
+                      style: GoogleFonts.inter(
                         fontSize: 22,
                         fontWeight: FontWeight.w800,
                         color: isDark
@@ -59,7 +59,7 @@ class BookingSuccessScreen extends StatelessWidget {
                     const SizedBox(height: 4),
                     Text(
                       'Your ticket has been booked',
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 13,
                         fontWeight: FontWeight.w500,
                         color: isDark
@@ -103,7 +103,7 @@ class BookingSuccessScreen extends StatelessWidget {
                               child: Row(
                                 children: [
                                   const Icon(
-                                    Icons.info_outline_rounded,
+                                    Icons.info_outlined,
                                     size: 18,
                                     color: AppColors.success,
                                   ),
@@ -111,7 +111,7 @@ class BookingSuccessScreen extends StatelessWidget {
                                   Expanded(
                                     child: Text(
                                       busBooking.bookingResult!.message,
-                                      style: GoogleFonts.plusJakartaSans(
+                                      style: GoogleFonts.inter(
                                         fontSize: 12,
                                         fontWeight: FontWeight.w500,
                                         color: AppColors.success,
@@ -156,7 +156,7 @@ class BookingSuccessScreen extends StatelessWidget {
                           alignment: Alignment.center,
                           child: Text(
                             'Book Another Trip',
-                            style: GoogleFonts.plusJakartaSans(
+                            style: GoogleFonts.inter(
                               fontSize: 15,
                               fontWeight: FontWeight.w700,
                               color: Colors.white,
@@ -189,7 +189,7 @@ class BookingSuccessScreen extends StatelessWidget {
                         ),
                         child: Text(
                           'View Booking History',
-                          style: GoogleFonts.plusJakartaSans(
+                          style: GoogleFonts.inter(
                             fontSize: 14,
                             fontWeight: FontWeight.w700,
                             color: isDark
@@ -222,7 +222,7 @@ class BookingSuccessScreen extends StatelessWidget {
           children: [
             Text(
               busBooking.selectedBus?.busPicktime.substring(0, 5) ?? '',
-              style: GoogleFonts.sora(
+              style: GoogleFonts.inter(
                 fontSize: 20,
                 fontWeight: FontWeight.w800,
                 color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -230,7 +230,7 @@ class BookingSuccessScreen extends StatelessWidget {
             ),
             Text(
               from,
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
                 color: isDark
@@ -245,13 +245,13 @@ class BookingSuccessScreen extends StatelessWidget {
           child: Column(
             children: [
               Icon(
-                Icons.arrow_forward_rounded,
+                Icons.arrow_forward_outlined,
                 size: 20,
                 color: AppColors.primary,
               ),
               Text(
                 busBooking.selectedBus?.differencePickDrop ?? '',
-                style: GoogleFonts.plusJakartaSans(
+                style: GoogleFonts.inter(
                   fontSize: 10,
                   fontWeight: FontWeight.w600,
                   color: isDark
@@ -266,7 +266,7 @@ class BookingSuccessScreen extends StatelessWidget {
           children: [
             Text(
               busBooking.selectedBus?.busDroptime.substring(0, 5) ?? '',
-              style: GoogleFonts.sora(
+              style: GoogleFonts.inter(
                 fontSize: 20,
                 fontWeight: FontWeight.w800,
                 color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -274,7 +274,7 @@ class BookingSuccessScreen extends StatelessWidget {
             ),
             Text(
               to,
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
                 color: isDark
@@ -335,7 +335,7 @@ class BookingSuccessScreen extends StatelessWidget {
         children: [
           Text(
             label,
-            style: GoogleFonts.plusJakartaSans(
+            style: GoogleFonts.inter(
               fontSize: 12,
               fontWeight: FontWeight.w500,
               color: isDark
@@ -345,7 +345,7 @@ class BookingSuccessScreen extends StatelessWidget {
           ),
           Text(
             value,
-            style: GoogleFonts.plusJakartaSans(
+            style: GoogleFonts.inter(
               fontSize: 12,
               fontWeight: FontWeight.w700,
               color: isDark ? AppColors.darkForeground : AppColors.foreground,

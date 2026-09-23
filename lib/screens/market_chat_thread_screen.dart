@@ -115,7 +115,7 @@ class _MarketChatThreadScreenState extends State<MarketChatThreadScreen> {
           widget.itemTitle.isNotEmpty ? widget.itemTitle : 'Chat',
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
-          style: GoogleFonts.sora(fontWeight: FontWeight.w800, fontSize: 16),
+          style: GoogleFonts.inter(fontWeight: FontWeight.w800, fontSize: 16),
         ),
         backgroundColor: isDark
             ? AppColors.darkBackground
@@ -180,7 +180,7 @@ class _MarketChatThreadScreenState extends State<MarketChatThreadScreen> {
                           ),
                           child: Text(
                             (m['message'] ?? '').toString(),
-                            style: GoogleFonts.plusJakartaSans(
+                            style: GoogleFonts.inter(
                               fontSize: 13.5,
                               color: mine
                                   ? Colors.white
@@ -253,7 +253,7 @@ class _MarketChatThreadScreenState extends State<MarketChatThreadScreen> {
                             ),
                           )
                         : const Icon(
-                            Icons.send_rounded,
+                            Icons.send_outlined,
                             color: Colors.white,
                             size: 20,
                           ),

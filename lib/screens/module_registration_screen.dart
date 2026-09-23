@@ -144,19 +144,19 @@ class _ModuleRegistrationScreenState extends State<ModuleRegistrationScreen> {
   IconData _getFieldIcon(String field) {
     switch (field) {
       case 'mobile':
-        return Icons.phone_rounded;
+        return Icons.phone_outlined;
       case 'ccode':
-        return Icons.flag_rounded;
+        return Icons.flag_outlined;
       case 'address':
-        return Icons.home_rounded;
+        return Icons.home_outlined;
       case 'city':
-        return Icons.location_city_rounded;
+        return Icons.location_city_outlined;
       case 'state':
-        return Icons.map_rounded;
+        return Icons.map_outlined;
       case 'password':
-        return Icons.lock_rounded;
+        return Icons.lock_outlined;
       default:
-        return Icons.edit_rounded;
+        return Icons.edit_outlined;
     }
   }
 
@@ -303,7 +303,7 @@ class _ModuleRegistrationScreenState extends State<ModuleRegistrationScreen> {
                               isDark,
                               label: 'Email',
                               value: auth.displayEmail,
-                              icon: Icons.email_rounded,
+                              icon: Icons.email_outlined,
                             ),
                             const SizedBox(height: 16),
 
@@ -320,7 +320,7 @@ class _ModuleRegistrationScreenState extends State<ModuleRegistrationScreen> {
                                 hint: _isCreateMode
                                     ? 'Confirm your password to create your account'
                                     : 'Enter your ${widget.module.displayName} password',
-                                icon: Icons.lock_rounded,
+                                icon: Icons.lock_outlined,
                                 obscureText: true,
                                 validator: (v) => v == null || v.isEmpty
                                     ? 'Password is required'
@@ -358,7 +358,7 @@ class _ModuleRegistrationScreenState extends State<ModuleRegistrationScreen> {
                                     Expanded(
                                       child: Text(
                                         _error!,
-                                        style: GoogleFonts.plusJakartaSans(
+                                        style: GoogleFonts.inter(
                                           fontSize: 13,
                                           color: Colors.red,
                                         ),
@@ -418,7 +418,7 @@ class _ModuleRegistrationScreenState extends State<ModuleRegistrationScreen> {
                                           _isCreateMode
                                               ? 'Create Account'
                                               : 'Link Account',
-                                          style: GoogleFonts.plusJakartaSans(
+                                          style: GoogleFonts.inter(
                                             fontSize: 15,
                                             fontWeight: FontWeight.w700,
                                             color: Colors.white,
@@ -435,7 +435,7 @@ class _ModuleRegistrationScreenState extends State<ModuleRegistrationScreen> {
                                 onPressed: () => NavigationHelper.pop(context),
                                 child: Text(
                                   'Skip for now',
-                                  style: GoogleFonts.plusJakartaSans(
+                                  style: GoogleFonts.inter(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w600,
                                     color: isDark
@@ -474,7 +474,7 @@ class _ModuleRegistrationScreenState extends State<ModuleRegistrationScreen> {
               borderRadius: BorderRadius.circular(14),
             ),
             child: const Icon(
-              Icons.link_rounded,
+              Icons.link_outlined,
               color: Colors.white,
               size: 24,
             ),
@@ -488,7 +488,7 @@ class _ModuleRegistrationScreenState extends State<ModuleRegistrationScreen> {
                   _isCreateMode
                       ? 'Create your ${widget.module.displayName} account'
                       : 'Link your ${widget.module.displayName} account',
-                  style: GoogleFonts.sora(
+                  style: GoogleFonts.inter(
                     fontSize: 14,
                     fontWeight: FontWeight.w700,
                     color: isDark
@@ -501,7 +501,7 @@ class _ModuleRegistrationScreenState extends State<ModuleRegistrationScreen> {
                   _isCreateMode
                       ? 'Using your OPOOBO details. Just fill in the missing information.'
                       : 'Use your existing ${widget.module.displayName} credentials to link.',
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 12,
                     color: isDark
                         ? AppColors.darkMutedForeground
@@ -543,7 +543,7 @@ class _ModuleRegistrationScreenState extends State<ModuleRegistrationScreen> {
               children: [
                 Text(
                   label.toUpperCase(),
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 9,
                     fontWeight: FontWeight.w700,
                     letterSpacing: 0.5,
@@ -555,7 +555,7 @@ class _ModuleRegistrationScreenState extends State<ModuleRegistrationScreen> {
                 const SizedBox(height: 2),
                 Text(
                   value,
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
                     color: isDark
@@ -586,7 +586,7 @@ class _ModuleRegistrationScreenState extends State<ModuleRegistrationScreen> {
       obscureText: obscureText,
       keyboardType: keyboardType,
       validator: validator,
-      style: GoogleFonts.plusJakartaSans(
+      style: GoogleFonts.inter(
         fontSize: 14,
         fontWeight: FontWeight.w600,
         color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -691,7 +691,7 @@ class _PasswordUnifyDialogState extends State<_PasswordUnifyDialog> {
                 borderRadius: BorderRadius.circular(14),
               ),
               child: const Icon(
-                Icons.sync_lock_rounded,
+                Icons.sync_lock_outlined,
                 color: Colors.white,
                 size: 24,
               ),
@@ -699,7 +699,7 @@ class _PasswordUnifyDialogState extends State<_PasswordUnifyDialog> {
             const SizedBox(height: 16),
             Text(
               'Use one password everywhere?',
-              style: GoogleFonts.sora(
+              style: GoogleFonts.inter(
                 fontSize: 17,
                 fontWeight: FontWeight.w800,
                 color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -708,7 +708,7 @@ class _PasswordUnifyDialogState extends State<_PasswordUnifyDialog> {
             const SizedBox(height: 6),
             Text(
               'Set your OPOOBO password as your ${widget.moduleName} password so you never forget a login.',
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 13,
                 height: 1.4,
                 color: isDark
@@ -720,15 +720,15 @@ class _PasswordUnifyDialogState extends State<_PasswordUnifyDialog> {
             TextField(
               controller: _passwordController,
               obscureText: _obscure,
-              style: GoogleFonts.plusJakartaSans(fontSize: 14),
+              style: GoogleFonts.inter(fontSize: 14),
               decoration: InputDecoration(
                 labelText: 'Enter your OPOOBO password',
-                prefixIcon: const Icon(Icons.lock_rounded, size: 18),
+                prefixIcon: const Icon(Icons.lock_outlined, size: 18),
                 suffixIcon: IconButton(
                   icon: Icon(
                     _obscure
-                        ? Icons.visibility_rounded
-                        : Icons.visibility_off_rounded,
+                        ? Icons.visibility_outlined
+                        : Icons.visibility_off_outlined,
                     size: 18,
                   ),
                   onPressed: () => setState(() => _obscure = !_obscure),
@@ -753,7 +753,7 @@ class _PasswordUnifyDialogState extends State<_PasswordUnifyDialog> {
                     onPressed: () => Navigator.pop(context), // Keep separate
                     child: Text(
                       'Keep separate',
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 13,
                         fontWeight: FontWeight.w600,
                         color: isDark
@@ -790,7 +790,7 @@ class _PasswordUnifyDialogState extends State<_PasswordUnifyDialog> {
                       alignment: Alignment.center,
                       child: Text(
                         'Unify passwords',
-                        style: GoogleFonts.plusJakartaSans(
+                        style: GoogleFonts.inter(
                           fontSize: 13,
                           fontWeight: FontWeight.w700,
                           color: Colors.white,

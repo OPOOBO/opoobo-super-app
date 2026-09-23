@@ -104,6 +104,16 @@ class ApiClient {
     return response.data;
   }
 
+  Future<Map<String, dynamic>> getDeals() async {
+    final response = await _dio.get('/deals');
+    return response.data;
+  }
+
+  Future<Map<String, dynamic>> getRewards() async {
+    final response = await _dio.get('/rewards');
+    return response.data;
+  }
+
   Future<Map<String, dynamic>> updateProfile({
     Map<String, dynamic>? data,
   }) async {

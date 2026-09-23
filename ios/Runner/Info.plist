@@ -79,5 +79,7 @@
 			</array>
 		</dict>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>OPOOBO uses the camera to scan QR codes and product photos.</string>
 </dict>
 </plist>

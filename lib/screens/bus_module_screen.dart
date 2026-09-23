@@ -76,7 +76,7 @@ class _BusModuleScreenState extends State<BusModuleScreen> {
                       onChanged: (_) => setModalState(() {}),
                       decoration: InputDecoration(
                         hintText: 'Search cities...',
-                        prefixIcon: const Icon(Icons.search_rounded),
+                        prefixIcon: const Icon(Icons.search_outlined),
                         filled: true,
                         fillColor: isDark
                             ? AppColors.darkSurface
@@ -86,7 +86,7 @@ class _BusModuleScreenState extends State<BusModuleScreen> {
                           borderSide: BorderSide.none,
                         ),
                       ),
-                      style: GoogleFonts.plusJakartaSans(fontSize: 14),
+                      style: GoogleFonts.inter(fontSize: 14),
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -97,7 +97,7 @@ class _BusModuleScreenState extends State<BusModuleScreen> {
                               busBooking.loading
                                   ? 'Loading cities...'
                                   : 'No cities found',
-                              style: GoogleFonts.plusJakartaSans(
+                              style: GoogleFonts.inter(
                                 color: isDark
                                     ? AppColors.darkMutedForeground
                                     : AppColors.mutedForeground,
@@ -112,13 +112,13 @@ class _BusModuleScreenState extends State<BusModuleScreen> {
                                 leading: Icon(
                                   isFrom
                                       ? Icons.circle_outlined
-                                      : Icons.location_on_rounded,
+                                      : Icons.location_on_outlined,
                                   size: 18,
                                   color: AppColors.primary,
                                 ),
                                 title: Text(
                                   city.title,
-                                  style: GoogleFonts.plusJakartaSans(
+                                  style: GoogleFonts.inter(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w600,
                                     color: isDark
@@ -230,7 +230,7 @@ class _BusModuleScreenState extends State<BusModuleScreen> {
         child: Column(
           children: [
             ScreenHeader(
-              title: 'OPOOBO Bus',
+              title: 'Bus',
               subtitle: 'Book interstate & intercity trips',
               action: GestureDetector(
                 onTap: () => NavigationHelper.push(
@@ -244,7 +244,7 @@ class _BusModuleScreenState extends State<BusModuleScreen> {
                   ),
                   padding: const EdgeInsets.all(8),
                   child: Icon(
-                    Icons.receipt_long_rounded,
+                    Icons.receipt_long_outlined,
                     size: 18,
                     color: isDark
                         ? AppColors.darkForeground
@@ -294,7 +294,7 @@ class _BusModuleScreenState extends State<BusModuleScreen> {
         children: [
           Text(
             'Weekend deal',
-            style: GoogleFonts.plusJakartaSans(
+            style: GoogleFonts.inter(
               fontSize: 14,
               fontWeight: FontWeight.w700,
               color: Colors.white,
@@ -303,7 +303,7 @@ class _BusModuleScreenState extends State<BusModuleScreen> {
           const SizedBox(height: 4),
           Text(
             '15% off interstate trips',
-            style: GoogleFonts.sora(
+            style: GoogleFonts.inter(
               fontSize: 22,
               fontWeight: FontWeight.w800,
               color: Colors.white,
@@ -312,7 +312,7 @@ class _BusModuleScreenState extends State<BusModuleScreen> {
           const SizedBox(height: 4),
           Text(
             'Use code OPB15 \u00b7 ends Sunday',
-            style: GoogleFonts.plusJakartaSans(
+            style: GoogleFonts.inter(
               fontSize: 12,
               fontWeight: FontWeight.w500,
               color: Colors.white.withValues(alpha: 0.8),
@@ -359,7 +359,7 @@ class _BusModuleScreenState extends State<BusModuleScreen> {
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
-                  Icons.swap_vert_rounded,
+                  Icons.swap_vert_outlined,
                   color: Colors.white,
                   size: 20,
                 ),
@@ -371,7 +371,7 @@ class _BusModuleScreenState extends State<BusModuleScreen> {
           GestureDetector(
             onTap: () => _showCityPicker(isFrom: false),
             child: _LocationField(
-              icon: Icons.location_on_rounded,
+              icon: Icons.location_on_outlined,
               label: 'To',
               value: busBooking.toCity?.title ?? 'Select city',
               isDark: isDark,
@@ -393,7 +393,7 @@ class _BusModuleScreenState extends State<BusModuleScreen> {
                     if (picked != null) busBooking.setDepartureDate(picked);
                   },
                   child: _InfoField(
-                    icon: Icons.calendar_today_rounded,
+                    icon: Icons.calendar_today_outlined,
                     label: 'Departure',
                     value: _formatDate(busBooking.departureDate),
                     isDark: isDark,
@@ -417,7 +417,7 @@ class _BusModuleScreenState extends State<BusModuleScreen> {
                     children: [
                       Text(
                         'PASSENGERS',
-                        style: GoogleFonts.plusJakartaSans(
+                        style: GoogleFonts.inter(
                           fontSize: 9,
                           fontWeight: FontWeight.w700,
                           letterSpacing: 0.5,
@@ -443,12 +443,12 @@ class _BusModuleScreenState extends State<BusModuleScreen> {
                                     : AppColors.secondary,
                                 borderRadius: BorderRadius.circular(8),
                               ),
-                              child: const Icon(Icons.remove_rounded, size: 18),
+                              child: const Icon(Icons.remove_outlined, size: 18),
                             ),
                           ),
                           Text(
                             '${busBooking.passengers}',
-                            style: GoogleFonts.sora(
+                            style: GoogleFonts.inter(
                               fontSize: 16,
                               fontWeight: FontWeight.w700,
                               color: isDark
@@ -469,7 +469,7 @@ class _BusModuleScreenState extends State<BusModuleScreen> {
                                     : AppColors.secondary,
                                 borderRadius: BorderRadius.circular(8),
                               ),
-                              child: const Icon(Icons.add_rounded, size: 18),
+                              child: const Icon(Icons.add_outlined, size: 18),
                             ),
                           ),
                         ],
@@ -526,7 +526,7 @@ class _BusModuleScreenState extends State<BusModuleScreen> {
                       )
                     : Text(
                         'Search Buses',
-                        style: GoogleFonts.plusJakartaSans(
+                        style: GoogleFonts.inter(
                           fontSize: 15,
                           fontWeight: FontWeight.w700,
                           color: Colors.white,
@@ -549,7 +549,7 @@ class _BusModuleScreenState extends State<BusModuleScreen> {
       children: [
         Text(
           'Popular destinations',
-          style: GoogleFonts.sora(
+          style: GoogleFonts.inter(
             fontSize: 16,
             fontWeight: FontWeight.w800,
             color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -578,7 +578,7 @@ class _BusModuleScreenState extends State<BusModuleScreen> {
                 ),
                 child: Text(
                   city.title,
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
                     color: isDark
@@ -631,7 +631,7 @@ class _LocationField extends StatelessWidget {
               children: [
                 Text(
                   label.toUpperCase(),
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 9,
                     fontWeight: FontWeight.w700,
                     letterSpacing: 0.5,
@@ -643,7 +643,7 @@ class _LocationField extends StatelessWidget {
                 const SizedBox(height: 2),
                 Text(
                   value,
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
                     color: value.contains('Select')
@@ -659,7 +659,7 @@ class _LocationField extends StatelessWidget {
             ),
           ),
           Icon(
-            Icons.chevron_right_rounded,
+            Icons.chevron_right_outlined,
             size: 20,
             color: isDark
                 ? AppColors.darkMutedForeground
@@ -706,7 +706,7 @@ class _InfoField extends StatelessWidget {
               const SizedBox(width: 6),
               Text(
                 label.toUpperCase(),
-                style: GoogleFonts.plusJakartaSans(
+                style: GoogleFonts.inter(
                   fontSize: 9,
                   fontWeight: FontWeight.w700,
                   letterSpacing: 0.5,
@@ -720,7 +720,7 @@ class _InfoField extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             value,
-            style: GoogleFonts.plusJakartaSans(
+            style: GoogleFonts.inter(
               fontSize: 14,
               fontWeight: FontWeight.w600,
               color: isDark ? AppColors.darkForeground : AppColors.foreground,

@@ -71,7 +71,7 @@ class _MarketChatListScreenState extends State<MarketChatListScreen> {
       appBar: AppBar(
         title: Text(
           'Messages',
-          style: GoogleFonts.sora(fontWeight: FontWeight.w800),
+          style: GoogleFonts.inter(fontWeight: FontWeight.w800),
         ),
         backgroundColor: isDark
             ? AppColors.darkBackground
@@ -138,19 +138,19 @@ class _MarketChatListScreenState extends State<MarketChatListScreen> {
                       title,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontWeight: FontWeight.w700,
                         fontSize: 14,
                       ),
                     ),
                     subtitle: Text(
                       sellerName,
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 12,
                         color: Colors.grey,
                       ),
                     ),
-                    trailing: const Icon(Icons.chevron_right_rounded),
+                    trailing: const Icon(Icons.chevron_right_outlined),
                     onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(

@@ -233,7 +233,7 @@ class _BusPaymentScreenState extends State<BusPaymentScreen> {
                           Row(
                             children: [
                               const Icon(
-                                Icons.directions_bus_rounded,
+                                Icons.directions_bus_outlined,
                                 size: 20,
                                 color: AppColors.primary,
                               ),
@@ -241,7 +241,7 @@ class _BusPaymentScreenState extends State<BusPaymentScreen> {
                               Expanded(
                                 child: Text(
                                   '${busBooking.fromCity?.title ?? ""} \u2192 ${busBooking.toCity?.title ?? ""}',
-                                  style: GoogleFonts.sora(
+                                  style: GoogleFonts.inter(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w700,
                                     color: isDark
@@ -313,7 +313,7 @@ class _BusPaymentScreenState extends State<BusPaymentScreen> {
                     if (savedAuths.isNotEmpty) ...[
                       Text(
                         'Saved cards',
-                        style: GoogleFonts.sora(
+                        style: GoogleFonts.inter(
                           fontSize: 14,
                           fontWeight: FontWeight.w700,
                           color: isDark
@@ -344,7 +344,7 @@ class _BusPaymentScreenState extends State<BusPaymentScreen> {
                           child: Row(
                             children: [
                               const Icon(
-                                Icons.credit_card_rounded,
+                                Icons.credit_card_outlined,
                                 color: AppColors.primary,
                                 size: 20,
                               ),
@@ -355,14 +355,14 @@ class _BusPaymentScreenState extends State<BusPaymentScreen> {
                                   children: [
                                     Text(
                                       a.displayName,
-                                      style: GoogleFonts.plusJakartaSans(
+                                      style: GoogleFonts.inter(
                                         fontSize: 13,
                                         fontWeight: FontWeight.w600,
                                       ),
                                     ),
                                     Text(
                                       a.subtitle,
-                                      style: GoogleFonts.plusJakartaSans(
+                                      style: GoogleFonts.inter(
                                         fontSize: 11,
                                         color: AppColors.mutedForeground,
                                       ),
@@ -372,7 +372,7 @@ class _BusPaymentScreenState extends State<BusPaymentScreen> {
                               ),
                               if (_selectedAuth?.id == a.id)
                                 const Icon(
-                                  Icons.check_circle_rounded,
+                                  Icons.check_circle_outlined,
                                   color: AppColors.primary,
                                   size: 20,
                                 ),
@@ -385,7 +385,7 @@ class _BusPaymentScreenState extends State<BusPaymentScreen> {
                         _selectedAuth != null
                             ? 'Pay instantly with ${_selectedAuth!.displayName}'
                             : 'Select a card or pay with a new one',
-                        style: GoogleFonts.plusJakartaSans(
+                        style: GoogleFonts.inter(
                           fontSize: 11,
                           color: AppColors.mutedForeground,
                         ),
@@ -395,7 +395,7 @@ class _BusPaymentScreenState extends State<BusPaymentScreen> {
                     // Coupon
                     Text(
                       'Have a coupon?',
-                      style: GoogleFonts.sora(
+                      style: GoogleFonts.inter(
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
                         color: isDark
@@ -411,7 +411,7 @@ class _BusPaymentScreenState extends State<BusPaymentScreen> {
                             controller: _couponController,
                             decoration: InputDecoration(
                               hintText: 'Enter coupon code',
-                              hintStyle: GoogleFonts.plusJakartaSans(
+                              hintStyle: GoogleFonts.inter(
                                 fontSize: 13,
                               ),
                               filled: true,
@@ -427,7 +427,7 @@ class _BusPaymentScreenState extends State<BusPaymentScreen> {
                                 vertical: 12,
                               ),
                             ),
-                            style: GoogleFonts.plusJakartaSans(fontSize: 13),
+                            style: GoogleFonts.inter(fontSize: 13),
                           ),
                         ),
                         const SizedBox(width: 8),
@@ -444,7 +444,7 @@ class _BusPaymentScreenState extends State<BusPaymentScreen> {
                             ),
                             child: Text(
                               'Apply',
-                              style: GoogleFonts.plusJakartaSans(
+                              style: GoogleFonts.inter(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.white,
@@ -458,7 +458,7 @@ class _BusPaymentScreenState extends State<BusPaymentScreen> {
                       const SizedBox(height: 8),
                       Text(
                         'Coupon "${busBooking.appliedCoupon!.couponCode}" applied! \u20a6${busBooking.couponDiscount.toStringAsFixed(0)} off',
-                        style: GoogleFonts.plusJakartaSans(
+                        style: GoogleFonts.inter(
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
                           color: AppColors.success,
@@ -503,7 +503,7 @@ class _BusPaymentScreenState extends State<BusPaymentScreen> {
                                   _selectedAuth != null
                                       ? 'Pay \u20a6${busBooking.total.toStringAsFixed(0)} with ${_selectedAuth!.displayName}'
                                       : 'Pay \u20a6${busBooking.total.toStringAsFixed(0)}',
-                                  style: GoogleFonts.plusJakartaSans(
+                                  style: GoogleFonts.inter(
                                     fontSize: 15,
                                     fontWeight: FontWeight.w700,
                                     color: Colors.white,
@@ -536,7 +536,7 @@ class _BusPaymentScreenState extends State<BusPaymentScreen> {
         children: [
           Text(
             label,
-            style: GoogleFonts.plusJakartaSans(
+            style: GoogleFonts.inter(
               fontSize: isBold ? 14 : 13,
               fontWeight: isBold ? FontWeight.w700 : FontWeight.w500,
               color: isDark
@@ -546,7 +546,7 @@ class _BusPaymentScreenState extends State<BusPaymentScreen> {
           ),
           Text(
             value,
-            style: GoogleFonts.sora(
+            style: GoogleFonts.inter(
               fontSize: isBold ? 14 : 13,
               fontWeight: isBold ? FontWeight.w800 : FontWeight.w600,
               color: valueColor ??

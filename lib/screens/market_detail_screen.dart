@@ -402,7 +402,7 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
             children: [
               Text(
                 'Rate this seller',
-                style: GoogleFonts.sora(
+                style: GoogleFonts.inter(
                   fontSize: 17,
                   fontWeight: FontWeight.w800,
                 ),
@@ -410,7 +410,7 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
               const SizedBox(height: 4),
               Text(
                 'Only buyers of sold items can review. The platform confirms eligibility.',
-                style: GoogleFonts.plusJakartaSans(
+                style: GoogleFonts.inter(
                   fontSize: 12,
                   color: Colors.grey,
                 ),
@@ -426,8 +426,8 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
                       padding: const EdgeInsets.symmetric(horizontal: 4),
                       child: Icon(
                         i < rating
-                            ? Icons.star_rounded
-                            : Icons.star_border_rounded,
+                            ? Icons.star_outlined
+                            : Icons.star_border_outlined,
                         size: 36,
                         color: Colors.amber,
                       ),
@@ -527,7 +527,7 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
             children: [
               Text(
                 'Report listing',
-                style: GoogleFonts.sora(
+                style: GoogleFonts.inter(
                   fontSize: 17,
                   fontWeight: FontWeight.w800,
                 ),
@@ -535,7 +535,7 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
               const SizedBox(height: 4),
               Text(
                 'Why are you reporting this item?',
-                style: GoogleFonts.plusJakartaSans(
+                style: GoogleFonts.inter(
                   fontSize: 12,
                   color: Colors.grey,
                 ),
@@ -552,7 +552,7 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
                   onChanged: (v) => setSheet(() => selected = v),
                   title: Text(
                     label,
-                    style: GoogleFonts.plusJakartaSans(fontSize: 13),
+                    style: GoogleFonts.inter(fontSize: 13),
                   ),
                   contentPadding: EdgeInsets.zero,
                   dense: true,
@@ -657,7 +657,7 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(
-                    Icons.arrow_back_rounded,
+                    Icons.arrow_back_outlined,
                     color: Colors.white,
                     size: 20,
                   ),
@@ -688,7 +688,7 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
                       shape: BoxShape.circle,
                     ),
                     child: const Icon(
-                      Icons.more_vert_rounded,
+                      Icons.more_vert_outlined,
                       color: Colors.white,
                       size: 20,
                     ),
@@ -774,7 +774,7 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
                     if (_loading) const LinearProgressIndicator(minHeight: 2),
                     Text(
                       price,
-                      style: GoogleFonts.sora(
+                      style: GoogleFonts.inter(
                         fontSize: 26,
                         fontWeight: FontWeight.w800,
                         color: AppColors.primary,
@@ -783,7 +783,7 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
                     const SizedBox(height: 6),
                     Text(
                       _title(),
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 17,
                         fontWeight: FontWeight.w700,
                         color: isDark
@@ -806,7 +806,7 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
                               area,
                               category,
                             ].where((s) => s.isNotEmpty).join(' · '),
-                            style: GoogleFonts.plusJakartaSans(
+                            style: GoogleFonts.inter(
                               fontSize: 12,
                               color: Colors.grey,
                             ),
@@ -819,7 +819,7 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
                     const SizedBox(height: 6),
                     Text(
                       desc.isNotEmpty ? desc : 'No description provided.',
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 13.5,
                         height: 1.5,
                         color: isDark
@@ -865,7 +865,7 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
                                     sellerName.isNotEmpty
                                         ? sellerName[0].toUpperCase()
                                         : '?',
-                                    style: GoogleFonts.sora(
+                                    style: GoogleFonts.inter(
                                       fontSize: 20,
                                       fontWeight: FontWeight.w700,
                                       color: AppColors.primary,
@@ -883,7 +883,7 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
                                     Flexible(
                                       child: Text(
                                         sellerName,
-                                        style: GoogleFonts.plusJakartaSans(
+                                        style: GoogleFonts.inter(
                                           fontSize: 14,
                                           fontWeight: FontWeight.w700,
                                         ),
@@ -892,7 +892,7 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
                                     if (verified) ...[
                                       const SizedBox(width: 4),
                                       const Icon(
-                                        Icons.verified_rounded,
+                                        Icons.verified_outlined,
                                         size: 16,
                                         color: AppColors.primary,
                                       ),
@@ -901,7 +901,7 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
                                 ),
                                 Text(
                                   'Market seller',
-                                  style: GoogleFonts.plusJakartaSans(
+                                  style: GoogleFonts.inter(
                                     fontSize: 11,
                                     color: Colors.grey,
                                   ),
@@ -913,7 +913,7 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
                                     padding: const EdgeInsets.only(top: 2),
                                     child: Text(
                                       '${(_seller['country_code'] ?? '').toString()} ${(_seller['mobile'] ?? '').toString()}',
-                                      style: GoogleFonts.plusJakartaSans(
+                                      style: GoogleFonts.inter(
                                         fontSize: 11,
                                         fontWeight: FontWeight.w600,
                                         color: AppColors.primary,
@@ -1017,7 +1017,7 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
                 alignment: Alignment.center,
                 child: Text(
                   'This is your own listing',
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 13,
                     fontWeight: FontWeight.w700,
                     color: AppColors.primary,
@@ -1039,7 +1039,7 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
                               ),
                             )
                           : const Icon(
-                              Icons.chat_bubble_outline_rounded,
+                              Icons.chat_bubble_outline_outlined,
                               size: 18,
                             ),
                       label: const Text('Chat'),
@@ -1119,7 +1119,7 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
           children: [
             Text(
               specs[i]['label']!,
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 10,
                 color: Colors.grey,
               ),
@@ -1128,7 +1128,7 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
               specs[i]['value']!,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 12.5,
                 fontWeight: FontWeight.w700,
               ),
@@ -1142,7 +1142,7 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
   Widget _sectionTitle(String t, bool isDark) {
     return Text(
       t,
-      style: GoogleFonts.sora(
+      style: GoogleFonts.inter(
         fontSize: 15,
         fontWeight: FontWeight.w800,
         color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -1165,7 +1165,7 @@ class _SafetyTip extends StatelessWidget {
           const Icon(Icons.shield_outlined, size: 14, color: Colors.amber),
           const SizedBox(width: 8),
           Expanded(
-            child: Text(text, style: GoogleFonts.plusJakartaSans(fontSize: 12)),
+            child: Text(text, style: GoogleFonts.inter(fontSize: 12)),
           ),
         ],
       ),
@@ -1210,7 +1210,7 @@ class _FullscreenGalleryState extends State<_FullscreenGallery> {
         foregroundColor: Colors.white,
         title: Text(
           '${_index + 1} / ${widget.photos.length}',
-          style: GoogleFonts.plusJakartaSans(color: Colors.white),
+          style: GoogleFonts.inter(color: Colors.white),
         ),
       ),
       body: PageView.builder(

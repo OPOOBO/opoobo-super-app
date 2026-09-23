@@ -63,7 +63,7 @@ class ModuleCard extends StatelessWidget {
                     ),
                     child: Text(
                       service.badge!,
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 10,
                         fontWeight: FontWeight.w700,
                         color: service.state == ServiceState.update
@@ -81,7 +81,7 @@ class ModuleCard extends StatelessWidget {
             const SizedBox(height: 10),
             Text(
               service.name,
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 13,
                 fontWeight: FontWeight.w800,
                 color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -92,7 +92,7 @@ class ModuleCard extends StatelessWidget {
             const SizedBox(height: 2),
             Text(
               service.description,
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 11,
                 fontWeight: FontWeight.w500,
                 color: isDark
@@ -107,7 +107,7 @@ class ModuleCard extends StatelessWidget {
               const SizedBox(height: 6),
               Text(
                 'Used ${service.lastUsed}',
-                style: GoogleFonts.plusJakartaSans(
+                style: GoogleFonts.inter(
                   fontSize: 10,
                   fontWeight: FontWeight.w600,
                   color: isDark
@@ -184,7 +184,7 @@ class SectionTitle extends StatelessWidget {
         children: [
           Text(
             title,
-            style: GoogleFonts.sora(
+            style: GoogleFonts.inter(
               fontSize: 16,
               fontWeight: FontWeight.w800,
               color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -195,7 +195,7 @@ class SectionTitle extends StatelessWidget {
               onTap: onAction,
               child: Text(
                 actionLabel!,
-                style: GoogleFonts.plusJakartaSans(
+                style: GoogleFonts.inter(
                   fontSize: 12,
                   fontWeight: FontWeight.w700,
                   color: AppColors.primary,

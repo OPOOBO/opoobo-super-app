@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import '../providers/offer_provider.dart';
 import '../theme/app_colors.dart';
+import '../widgets/offer_cards.dart';
 import '../widgets/screen_header.dart';
 
 class RewardsScreen extends StatelessWidget {
@@ -22,6 +25,18 @@ class RewardsScreen extends StatelessWidget {
             child: ListView(
               padding: const EdgeInsets.all(16),
               children: [
+                Builder(
+                  builder: (context) {
+                    final offers = context.watch<OfferProvider>();
+                    return RewardsSummaryCard(
+                      summary: offers.rewards,
+                      loading: offers.loadingRewards && offers.rewards == null,
+                      message: offers.rewardsError,
+                      isDark: isDark,
+                    );
+                  },
+                ),
+                const SizedBox(height: 16),
                 // Referral card
                 Container(
                   width: double.infinity,
@@ -37,14 +52,14 @@ class RewardsScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       const Icon(
-                        Icons.card_giftcard_rounded,
+                        Icons.card_giftcard_outlined,
                         size: 48,
                         color: Colors.white,
                       ),
                       const SizedBox(height: 12),
                       Text(
                         'Invite Friends',
-                        style: GoogleFonts.sora(
+                        style: GoogleFonts.inter(
                           fontSize: 20,
                           fontWeight: FontWeight.w800,
                           color: Colors.white,
@@ -54,7 +69,7 @@ class RewardsScreen extends StatelessWidget {
                       Text(
                         'Get \u20a6500 for each friend who signs up and books their first trip',
                         textAlign: TextAlign.center,
-                        style: GoogleFonts.plusJakartaSans(
+                        style: GoogleFonts.inter(
                           fontSize: 13,
                           color: Colors.white70,
                         ),
@@ -71,7 +86,7 @@ class RewardsScreen extends StatelessWidget {
                         ),
                         child: Text(
                           'OPB-2026-ABCD',
-                          style: GoogleFonts.sora(
+                          style: GoogleFonts.inter(
                             fontSize: 18,
                             fontWeight: FontWeight.w700,
                             color: Colors.white,
@@ -93,7 +108,7 @@ class RewardsScreen extends StatelessWidget {
                           ),
                           child: Text(
                             'Share Code',
-                            style: GoogleFonts.plusJakartaSans(
+                            style: GoogleFonts.inter(
                               fontSize: 14,
                               fontWeight: FontWeight.w700,
                               color: const Color(0xFF7C3AED),
@@ -108,7 +123,7 @@ class RewardsScreen extends StatelessWidget {
                 // How it works
                 Text(
                   'How it Works',
-                  style: GoogleFonts.sora(
+                  style: GoogleFonts.inter(
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
                   ),
@@ -133,7 +148,7 @@ class RewardsScreen extends StatelessWidget {
                 // Points history
                 Text(
                   'Points History',
-                  style: GoogleFonts.sora(
+                  style: GoogleFonts.inter(
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
                   ),
@@ -196,7 +211,7 @@ class _StepTile extends StatelessWidget {
             child: Center(
               child: Text(
                 step,
-                style: GoogleFonts.sora(
+                style: GoogleFonts.inter(
                   fontSize: 14,
                   fontWeight: FontWeight.w700,
                   color: Colors.white,
@@ -211,14 +226,14 @@ class _StepTile extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 Text(
                   desc,
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 12,
                     color: AppColors.mutedForeground,
                   ),
@@ -260,14 +275,14 @@ class _PointTile extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 13,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 Text(
                   time,
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 11,
                     color: AppColors.mutedForeground,
                   ),
@@ -277,7 +292,7 @@ class _PointTile extends StatelessWidget {
           ),
           Text(
             points,
-            style: GoogleFonts.sora(
+            style: GoogleFonts.inter(
               fontSize: 15,
               fontWeight: FontWeight.w700,
               color: positive ? AppColors.success : AppColors.destructive,

@@ -118,7 +118,7 @@ class _PassengerInfoScreenState extends State<PassengerInfoScreen> {
                     // Contact info
                     Text(
                       'Contact Information',
-                      style: GoogleFonts.sora(
+                      style: GoogleFonts.inter(
                         fontSize: 16,
                         fontWeight: FontWeight.w800,
                         color: isDark
@@ -129,20 +129,20 @@ class _PassengerInfoScreenState extends State<PassengerInfoScreen> {
                     const SizedBox(height: 12),
                     FloatingField(
                       label: 'Full name',
-                      icon: Icons.person_rounded,
+                      icon: Icons.person_outlined,
                       controller: _nameController,
                     ),
                     const SizedBox(height: 12),
                     FloatingField(
                       label: 'Email',
-                      icon: Icons.mail_rounded,
+                      icon: Icons.mail_outlined,
                       keyboardType: TextInputType.emailAddress,
                       controller: _emailController,
                     ),
                     const SizedBox(height: 12),
                     FloatingField(
                       label: 'Phone',
-                      icon: Icons.phone_rounded,
+                      icon: Icons.phone_outlined,
                       keyboardType: TextInputType.phone,
                       controller: _phoneController,
                     ),
@@ -150,7 +150,7 @@ class _PassengerInfoScreenState extends State<PassengerInfoScreen> {
                     // Passengers
                     Text(
                       'Passengers (${busBooking.passengers})',
-                      style: GoogleFonts.sora(
+                      style: GoogleFonts.inter(
                         fontSize: 16,
                         fontWeight: FontWeight.w800,
                         color: isDark
@@ -163,7 +163,7 @@ class _PassengerInfoScreenState extends State<PassengerInfoScreen> {
                         false)
                       Text(
                         'Seats will be auto-assigned',
-                        style: GoogleFonts.plusJakartaSans(
+                        style: GoogleFonts.inter(
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
                           color: AppColors.primary,
@@ -198,7 +198,7 @@ class _PassengerInfoScreenState extends State<PassengerInfoScreen> {
                           alignment: Alignment.center,
                           child: Text(
                             'Continue to Payment',
-                            style: GoogleFonts.plusJakartaSans(
+                            style: GoogleFonts.inter(
                               fontSize: 15,
                               fontWeight: FontWeight.w700,
                               color: Colors.white,
@@ -233,7 +233,7 @@ class _PassengerInfoScreenState extends State<PassengerInfoScreen> {
         children: [
           Text(
             'Passenger ${index + 1}',
-            style: GoogleFonts.plusJakartaSans(
+            style: GoogleFonts.inter(
               fontSize: 13,
               fontWeight: FontWeight.w700,
               color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -244,7 +244,7 @@ class _PassengerInfoScreenState extends State<PassengerInfoScreen> {
             controller: _passengerNameControllers[index],
             decoration: InputDecoration(
               hintText: 'Full name',
-              hintStyle: GoogleFonts.plusJakartaSans(fontSize: 13),
+              hintStyle: GoogleFonts.inter(fontSize: 13),
               filled: true,
               fillColor: isDark ? AppColors.darkSurface : AppColors.secondary,
               border: OutlineInputBorder(
@@ -256,7 +256,7 @@ class _PassengerInfoScreenState extends State<PassengerInfoScreen> {
                 vertical: 12,
               ),
             ),
-            style: GoogleFonts.plusJakartaSans(fontSize: 13),
+            style: GoogleFonts.inter(fontSize: 13),
           ),
           const SizedBox(height: 10),
           Row(
@@ -281,7 +281,7 @@ class _PassengerInfoScreenState extends State<PassengerInfoScreen> {
                         value: i + 1,
                         child: Text(
                           '${i + 1}',
-                          style: GoogleFonts.plusJakartaSans(fontSize: 13),
+                          style: GoogleFonts.inter(fontSize: 13),
                         ),
                       ),
                     ),
@@ -311,7 +311,7 @@ class _PassengerInfoScreenState extends State<PassengerInfoScreen> {
                             value: g,
                             child: Text(
                               g[0] + g.substring(1).toLowerCase(),
-                              style: GoogleFonts.plusJakartaSans(fontSize: 13),
+                              style: GoogleFonts.inter(fontSize: 13),
                             ),
                           ),
                         )

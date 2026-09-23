@@ -44,7 +44,7 @@ class _WalletScreenState extends State<WalletScreen> {
                       children: [
                         Text(
                           'Available Balance',
-                          style: GoogleFonts.plusJakartaSans(
+                          style: GoogleFonts.inter(
                             fontSize: 13,
                             color: Colors.white70,
                           ),
@@ -52,7 +52,7 @@ class _WalletScreenState extends State<WalletScreen> {
                         const SizedBox(height: 8),
                         Text(
                           '\u20a6${_fmtNum(balance.toInt())}',
-                          style: GoogleFonts.sora(
+                          style: GoogleFonts.inter(
                             fontSize: 36,
                             fontWeight: FontWeight.w800,
                             color: Colors.white,
@@ -63,19 +63,19 @@ class _WalletScreenState extends State<WalletScreen> {
                           children: [
                             _ActionBtn(
                               label: 'Top Up',
-                              icon: Icons.add_rounded,
+                              icon: Icons.add_outlined,
                               onTap: () => _showActionDialog('Top Up'),
                             ),
                             const SizedBox(width: 12),
                             _ActionBtn(
                               label: 'Withdraw',
-                              icon: Icons.arrow_upward_rounded,
+                              icon: Icons.arrow_upward_outlined,
                               onTap: () => _showActionDialog('Withdraw'),
                             ),
                             const SizedBox(width: 12),
                             _ActionBtn(
                               label: 'Send',
-                              icon: Icons.send_rounded,
+                              icon: Icons.send_outlined,
                               onTap: () => _showActionDialog('Send'),
                             ),
                           ],
@@ -101,7 +101,7 @@ class _WalletScreenState extends State<WalletScreen> {
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: const Icon(
-                            Icons.stars_rounded,
+                            Icons.stars_outlined,
                             color: AppColors.primary,
                           ),
                         ),
@@ -112,14 +112,14 @@ class _WalletScreenState extends State<WalletScreen> {
                             children: [
                               Text(
                                 'Reward Points',
-                                style: GoogleFonts.plusJakartaSans(
+                                style: GoogleFonts.inter(
                                   fontSize: 13,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
                               Text(
                                 '$points pts',
-                                style: GoogleFonts.sora(
+                                style: GoogleFonts.inter(
                                   fontSize: 18,
                                   fontWeight: FontWeight.w700,
                                 ),
@@ -131,7 +131,7 @@ class _WalletScreenState extends State<WalletScreen> {
                           onPressed: () => _showActionDialog('Redeem points'),
                           child: Text(
                             'Redeem',
-                            style: GoogleFonts.plusJakartaSans(
+                            style: GoogleFonts.inter(
                               fontWeight: FontWeight.w600,
                               color: AppColors.primary,
                             ),
@@ -143,7 +143,7 @@ class _WalletScreenState extends State<WalletScreen> {
                   const SizedBox(height: 24),
                   Text(
                     'Recent Transactions',
-                    style: GoogleFonts.sora(
+                    style: GoogleFonts.inter(
                       fontSize: 16,
                       fontWeight: FontWeight.w700,
                     ),
@@ -160,14 +160,14 @@ class _WalletScreenState extends State<WalletScreen> {
                       child: Column(
                         children: [
                           Icon(
-                            Icons.receipt_long_rounded,
+                            Icons.receipt_long_outlined,
                             size: 48,
                             color: AppColors.mutedForeground,
                           ),
                           const SizedBox(height: 12),
                           Text(
                             'No transactions yet',
-                            style: GoogleFonts.plusJakartaSans(
+                            style: GoogleFonts.inter(
                               fontSize: 14,
                               fontWeight: FontWeight.w600,
                               color: AppColors.mutedForeground,
@@ -176,7 +176,7 @@ class _WalletScreenState extends State<WalletScreen> {
                           const SizedBox(height: 4),
                           Text(
                             'Your transaction history will appear here',
-                            style: GoogleFonts.plusJakartaSans(
+                            style: GoogleFonts.inter(
                               fontSize: 12,
                               color: AppColors.mutedForeground,
                             ),
@@ -246,7 +246,7 @@ class _ActionBtn extends StatelessWidget {
             const SizedBox(width: 6),
             Text(
               label,
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 12,
                 fontWeight: FontWeight.w600,
                 color: Colors.white,

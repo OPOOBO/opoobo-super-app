@@ -52,7 +52,7 @@ class _BookingHistoryScreenState extends State<BookingHistoryScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Icon(
-                            Icons.receipt_long_rounded,
+                            Icons.receipt_long_outlined,
                             size: 64,
                             color: AppColors.mutedForeground.withValues(
                               alpha: 0.3,
@@ -61,7 +61,7 @@ class _BookingHistoryScreenState extends State<BookingHistoryScreen> {
                           const SizedBox(height: 16),
                           Text(
                             'No bookings yet',
-                            style: GoogleFonts.sora(
+                            style: GoogleFonts.inter(
                               fontSize: 18,
                               fontWeight: FontWeight.w700,
                               color: isDark
@@ -72,7 +72,7 @@ class _BookingHistoryScreenState extends State<BookingHistoryScreen> {
                           const SizedBox(height: 8),
                           Text(
                             'Your booking history will appear here',
-                            style: GoogleFonts.plusJakartaSans(
+                            style: GoogleFonts.inter(
                               fontSize: 13,
                               color: isDark
                                   ? AppColors.darkMutedForeground
@@ -164,7 +164,7 @@ class _BookingCard extends StatelessWidget {
                 Expanded(
                   child: Text(
                     '${booking.boardingCity} \u2192 ${booking.dropCity}',
-                    style: GoogleFonts.sora(
+                    style: GoogleFonts.inter(
                       fontSize: 14,
                       fontWeight: FontWeight.w700,
                       color: isDark
@@ -184,7 +184,7 @@ class _BookingCard extends StatelessWidget {
                   ),
                   child: Text(
                     _statusLabel,
-                    style: GoogleFonts.plusJakartaSans(
+                    style: GoogleFonts.inter(
                       fontSize: 10,
                       fontWeight: FontWeight.w700,
                       color: _statusColor,
@@ -197,14 +197,14 @@ class _BookingCard extends StatelessWidget {
             Row(
               children: [
                 Icon(
-                  Icons.calendar_today_rounded,
+                  Icons.calendar_today_outlined,
                   size: 14,
                   color: AppColors.mutedForeground,
                 ),
                 const SizedBox(width: 6),
                 Text(
                   booking.bookDate,
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
                     color: isDark
@@ -214,14 +214,14 @@ class _BookingCard extends StatelessWidget {
                 ),
                 const SizedBox(width: 12),
                 Icon(
-                  Icons.access_time_rounded,
+                  Icons.access_time_outlined,
                   size: 14,
                   color: AppColors.mutedForeground,
                 ),
                 const SizedBox(width: 6),
                 Text(
                   '${booking.busPicktime.substring(0, 5)} \u2192 ${booking.busDroptime.substring(0, 5)}',
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
                     color: isDark
@@ -237,7 +237,7 @@ class _BookingCard extends StatelessWidget {
               children: [
                 Text(
                   booking.busName,
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
                     color: isDark
@@ -247,7 +247,7 @@ class _BookingCard extends StatelessWidget {
                 ),
                 Text(
                   '\u20a6${booking.subtotal}',
-                  style: GoogleFonts.sora(
+                  style: GoogleFonts.inter(
                     fontSize: 14,
                     fontWeight: FontWeight.w800,
                     color: AppColors.primary,

@@ -52,14 +52,14 @@ class _JobsScreenState extends State<JobsScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(
-                                  Icons.work_outline_rounded,
+                                  Icons.work_outline_outlined,
                                   size: 64,
                                   color: AppColors.mutedForeground,
                                 ),
                                 const SizedBox(height: 12),
                                 Text(
                                   'No jobs available',
-                                  style: GoogleFonts.plusJakartaSans(
+                                  style: GoogleFonts.inter(
                                     fontSize: 15,
                                     color: AppColors.mutedForeground,
                                   ),
@@ -113,7 +113,7 @@ class _JobCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: const Icon(
-                  Icons.work_outline_rounded,
+                  Icons.work_outline_outlined,
                   color: AppColors.primary,
                 ),
               ),
@@ -124,14 +124,14 @@ class _JobCard extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
                     Text(
                       company,
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 12,
                         color: AppColors.mutedForeground,
                       ),
@@ -153,7 +153,7 @@ class _JobCard extends StatelessWidget {
                 const SizedBox(width: 4),
                 Text(
                   location,
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 12,
                     color: AppColors.mutedForeground,
                   ),
@@ -174,7 +174,7 @@ class _JobCard extends StatelessWidget {
                 onPressed: () {},
                 child: Text(
                   'Apply',
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontWeight: FontWeight.w700,
                     color: AppColors.primary,
                   ),
@@ -202,7 +202,7 @@ class _Tag extends StatelessWidget {
       ),
       child: Text(
         label,
-        style: GoogleFonts.plusJakartaSans(
+        style: GoogleFonts.inter(
           fontSize: 11,
           fontWeight: FontWeight.w600,
           color: AppColors.primary,

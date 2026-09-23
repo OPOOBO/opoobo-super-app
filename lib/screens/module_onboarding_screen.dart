@@ -111,7 +111,7 @@ class _ModuleOnboardingScreenState extends State<ModuleOnboardingScreen> {
                     if (modules.where((m) => m.isActive).isNotEmpty) ...[
                       Text(
                         'Available Services',
-                        style: GoogleFonts.sora(
+                        style: GoogleFonts.inter(
                           fontSize: 16,
                           fontWeight: FontWeight.w800,
                           color: isDark
@@ -144,7 +144,7 @@ class _ModuleOnboardingScreenState extends State<ModuleOnboardingScreen> {
                         ),
                         child: Text(
                           'Skip for now',
-                          style: GoogleFonts.plusJakartaSans(
+                          style: GoogleFonts.inter(
                             fontSize: 15,
                             fontWeight: FontWeight.w700,
                             color: isDark
@@ -198,7 +198,7 @@ class _ModuleOnboardingScreenState extends State<ModuleOnboardingScreen> {
               children: [
                 Text(
                   'Welcome, ${auth.displayName}!',
-                  style: GoogleFonts.sora(
+                  style: GoogleFonts.inter(
                     fontSize: 18,
                     fontWeight: FontWeight.w800,
                     color: Colors.white,
@@ -207,7 +207,7 @@ class _ModuleOnboardingScreenState extends State<ModuleOnboardingScreen> {
                 const SizedBox(height: 4),
                 Text(
                   'Let\'s connect your OPOOBO services for a seamless experience.',
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 13,
                     color: Colors.white.withValues(alpha: 0.85),
                   ),
@@ -235,7 +235,7 @@ class _ModuleOnboardingScreenState extends State<ModuleOnboardingScreen> {
         children: [
           Text(
             'Check existing accounts',
-            style: GoogleFonts.sora(
+            style: GoogleFonts.inter(
               fontSize: 14,
               fontWeight: FontWeight.w700,
               color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -244,7 +244,7 @@ class _ModuleOnboardingScreenState extends State<ModuleOnboardingScreen> {
           const SizedBox(height: 4),
           Text(
             'Enter your email to check if you have accounts on other OPOOBO services',
-            style: GoogleFonts.plusJakartaSans(
+            style: GoogleFonts.inter(
               fontSize: 12,
               color: isDark
                   ? AppColors.darkMutedForeground
@@ -258,10 +258,10 @@ class _ModuleOnboardingScreenState extends State<ModuleOnboardingScreen> {
                 child: TextField(
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
-                  style: GoogleFonts.plusJakartaSans(fontSize: 14),
+                  style: GoogleFonts.inter(fontSize: 14),
                   decoration: InputDecoration(
                     hintText: 'Enter your email',
-                    prefixIcon: const Icon(Icons.email_rounded, size: 18),
+                    prefixIcon: const Icon(Icons.email_outlined, size: 18),
                     filled: true,
                     fillColor:
                         (isDark ? AppColors.darkSurface : AppColors.surface)
@@ -306,7 +306,7 @@ class _ModuleOnboardingScreenState extends State<ModuleOnboardingScreen> {
                           ),
                         )
                       : const Icon(
-                          Icons.search_rounded,
+                          Icons.search_outlined,
                           color: Colors.white,
                           size: 20,
                         ),
@@ -325,7 +325,7 @@ class _ModuleOnboardingScreenState extends State<ModuleOnboardingScreen> {
       children: [
         Text(
           'Search Results',
-          style: GoogleFonts.sora(
+          style: GoogleFonts.inter(
             fontSize: 16,
             fontWeight: FontWeight.w800,
             color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -380,7 +380,7 @@ class _ModuleOnboardingScreenState extends State<ModuleOnboardingScreen> {
                     children: [
                       Text(
                         result.displayName,
-                        style: GoogleFonts.sora(
+                        style: GoogleFonts.inter(
                           fontSize: 14,
                           fontWeight: FontWeight.w700,
                           color: isDark
@@ -393,7 +393,7 @@ class _ModuleOnboardingScreenState extends State<ModuleOnboardingScreen> {
                         result.exists
                             ? 'Account found! ${result.name != null ? '(${result.name})' : ''}'
                             : 'No account found',
-                        style: GoogleFonts.plusJakartaSans(
+                        style: GoogleFonts.inter(
                           fontSize: 12,
                           color: result.exists
                               ? Colors.green
@@ -419,7 +419,7 @@ class _ModuleOnboardingScreenState extends State<ModuleOnboardingScreen> {
                       ),
                       child: Text(
                         'Link',
-                        style: GoogleFonts.plusJakartaSans(
+                        style: GoogleFonts.inter(
                           fontSize: 12,
                           fontWeight: FontWeight.w700,
                           color: Colors.white,
@@ -470,7 +470,7 @@ class _ModuleOnboardingScreenState extends State<ModuleOnboardingScreen> {
               children: [
                 Text(
                   module.displayName,
-                  style: GoogleFonts.sora(
+                  style: GoogleFonts.inter(
                     fontSize: 14,
                     fontWeight: FontWeight.w700,
                     color: isDark
@@ -481,7 +481,7 @@ class _ModuleOnboardingScreenState extends State<ModuleOnboardingScreen> {
                 const SizedBox(height: 2),
                 Text(
                   module.description ?? '',
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 12,
                     color: isDark
                         ? AppColors.darkMutedForeground
@@ -500,7 +500,7 @@ class _ModuleOnboardingScreenState extends State<ModuleOnboardingScreen> {
               ),
               child: Text(
                 'Linked',
-                style: GoogleFonts.plusJakartaSans(
+                style: GoogleFonts.inter(
                   fontSize: 11,
                   fontWeight: FontWeight.w700,
                   color: Colors.green,
@@ -521,7 +521,7 @@ class _ModuleOnboardingScreenState extends State<ModuleOnboardingScreen> {
                 ),
                 child: Text(
                   'Connect',
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 12,
                     fontWeight: FontWeight.w700,
                     color: Colors.white,
@@ -537,15 +537,15 @@ class _ModuleOnboardingScreenState extends State<ModuleOnboardingScreen> {
   IconData _getModuleIcon(String moduleName) {
     switch (moduleName) {
       case 'bus':
-        return Icons.directions_bus_rounded;
+        return Icons.directions_bus_outlined;
       case 'market':
-        return Icons.shopping_cart_rounded;
+        return Icons.shopping_cart_outlined;
       case 'food':
-        return Icons.restaurant_rounded;
+        return Icons.restaurant_outlined;
       case 'ride':
-        return Icons.directions_car_rounded;
+        return Icons.directions_car_outlined;
       default:
-        return Icons.apps_rounded;
+        return Icons.apps_outlined;
     }
   }
 }

@@ -139,6 +139,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
           ScreenHeader(
             title: 'Activity',
             subtitle: _tab == 'Activity' ? 'All your bookings & offers' : 'Stay updated',
+            showBack: true,
           ),
           // Tabs
           Padding(
@@ -179,7 +180,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
                 onChanged: (v) => setState(() => _search = v),
                 decoration: InputDecoration(
                   hintText: 'Search activity...',
-                  prefixIcon: const Icon(Icons.search_rounded, size: 20),
+                  prefixIcon: const Icon(Icons.search_outlined, size: 20),
                   filled: true,
                   fillColor: isDark ? AppColors.darkSurface : AppColors.surface,
                   border: OutlineInputBorder(
@@ -201,7 +202,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
                         child: ChoiceChip(
                           label: Text(
                             f,
-                            style: GoogleFonts.plusJakartaSans(
+                            style: GoogleFonts.inter(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
                               color: _filter == f
@@ -234,7 +235,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
                         child: ChoiceChip(
                           label: Text(
                             f,
-                            style: GoogleFonts.plusJakartaSans(
+                            style: GoogleFonts.inter(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
                               color: _filter == f
@@ -276,14 +277,14 @@ class _ActivityScreenState extends State<ActivityScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
-                    Icons.receipt_long_rounded,
+                    Icons.receipt_long_outlined,
                     size: 64,
                     color: AppColors.mutedForeground,
                   ),
                   const SizedBox(height: 12),
                   Text(
                     'No activity yet',
-                    style: GoogleFonts.plusJakartaSans(
+                    style: GoogleFonts.inter(
                       fontSize: 15,
                       color: AppColors.mutedForeground,
                     ),
@@ -299,7 +300,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     child: Text(
                       'Bus Trips',
-                      style: GoogleFonts.sora(
+                      style: GoogleFonts.inter(
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
                       ),
@@ -332,7 +333,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     child: Text(
                       'My Offers',
-                      style: GoogleFonts.sora(
+                      style: GoogleFonts.inter(
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
                       ),
@@ -376,14 +377,14 @@ class _ActivityScreenState extends State<ActivityScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
-                    Icons.notifications_none_rounded,
+                    Icons.notifications_none_outlined,
                     size: 64,
                     color: AppColors.mutedForeground,
                   ),
                   const SizedBox(height: 12),
                   Text(
                     'No notifications yet',
-                    style: GoogleFonts.plusJakartaSans(
+                    style: GoogleFonts.inter(
                       fontSize: 15,
                       color: AppColors.mutedForeground,
                     ),
@@ -427,7 +428,7 @@ class _TabButton extends StatelessWidget {
         ),
         child: Text(
           label,
-          style: GoogleFonts.plusJakartaSans(
+          style: GoogleFonts.inter(
             fontSize: 13,
             fontWeight: FontWeight.w600,
             color: isActive ? Colors.white : (isDark ? AppColors.darkForeground : AppColors.foreground),
@@ -465,7 +466,7 @@ class _BusBookingTile extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
               ),
               child: const Icon(
-                Icons.directions_bus_rounded,
+                Icons.directions_bus_outlined,
                 color: AppColors.primary,
               ),
             ),
@@ -476,14 +477,14 @@ class _BusBookingTile extends StatelessWidget {
                 children: [
                   Text(
                     '${booking.boardingCity} \u2192 ${booking.dropCity}',
-                    style: GoogleFonts.plusJakartaSans(
+                    style: GoogleFonts.inter(
                       fontSize: 13,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   Text(
                     booking.bookDate,
-                    style: GoogleFonts.plusJakartaSans(
+                    style: GoogleFonts.inter(
                       fontSize: 11,
                       color: AppColors.mutedForeground,
                     ),
@@ -503,7 +504,7 @@ class _BusBookingTile extends StatelessWidget {
               ),
               child: Text(
                 booking.bookingStatus,
-                style: GoogleFonts.plusJakartaSans(
+                style: GoogleFonts.inter(
                   fontSize: 11,
                   fontWeight: FontWeight.w600,
                   color: booking.isConfirmed
@@ -566,14 +567,14 @@ class _OfferTile extends StatelessWidget {
                     title,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.plusJakartaSans(
+                    style: GoogleFonts.inter(
                       fontSize: 13,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   Text(
                     amount.isNotEmpty ? 'Offer: \u20a6$amount' : 'Chat started',
-                    style: GoogleFonts.sora(
+                    style: GoogleFonts.inter(
                       fontSize: 13,
                       fontWeight: FontWeight.w700,
                       color: AppColors.primary,
@@ -583,7 +584,7 @@ class _OfferTile extends StatelessWidget {
               ),
             ),
             const Icon(
-              Icons.chevron_right_rounded,
+              Icons.chevron_right_outlined,
               color: AppColors.mutedForeground,
             ),
           ],
@@ -622,7 +623,7 @@ class _NotificationTile extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
             child: const Icon(
-              Icons.notifications_none_rounded,
+              Icons.notifications_none_outlined,
               size: 20,
               color: AppColors.primary,
             ),
@@ -634,7 +635,7 @@ class _NotificationTile extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 13,
                     fontWeight: FontWeight.w700,
                   ),
@@ -645,7 +646,7 @@ class _NotificationTile extends StatelessWidget {
                     body,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.plusJakartaSans(
+                    style: GoogleFonts.inter(
                       fontSize: 12,
                       color: AppColors.mutedForeground,
                     ),
@@ -655,7 +656,7 @@ class _NotificationTile extends StatelessWidget {
                   const SizedBox(height: 4),
                   Text(
                     time,
-                    style: GoogleFonts.plusJakartaSans(
+                    style: GoogleFonts.inter(
                       fontSize: 11,
                       color: AppColors.mutedForeground,
                     ),

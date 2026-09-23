@@ -99,7 +99,7 @@ class _StoreScreenState extends State<StoreScreen> {
               child: Row(
                 children: [
                   Icon(
-                    Icons.search_rounded,
+                    Icons.search_outlined,
                     size: 18,
                     color: isDark
                         ? AppColors.darkMutedForeground
@@ -112,7 +112,7 @@ class _StoreScreenState extends State<StoreScreen> {
                         setState(() => _search = v);
                         _loadStore();
                       },
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 13,
                         fontWeight: FontWeight.w500,
                         color: isDark
@@ -122,7 +122,7 @@ class _StoreScreenState extends State<StoreScreen> {
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: 'Search apps...',
-                        hintStyle: GoogleFonts.plusJakartaSans(
+                        hintStyle: GoogleFonts.inter(
                           fontSize: 13,
                           color: isDark
                               ? AppColors.darkMutedForeground
@@ -189,7 +189,7 @@ class _StoreScreenState extends State<StoreScreen> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(
-            Icons.cloud_off_rounded,
+            Icons.cloud_off_outlined,
             size: 48,
             color: isDark
                 ? AppColors.darkMutedForeground
@@ -198,7 +198,7 @@ class _StoreScreenState extends State<StoreScreen> {
           const SizedBox(height: 12),
           Text(
             _error!,
-            style: GoogleFonts.plusJakartaSans(
+            style: GoogleFonts.inter(
               fontSize: 14,
               color: isDark
                   ? AppColors.darkMutedForeground
@@ -219,7 +219,7 @@ class _StoreScreenState extends State<StoreScreen> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(
-              Icons.storefront_rounded,
+              Icons.storefront_outlined,
               size: 48,
               color: isDark
                   ? AppColors.darkMutedForeground
@@ -228,7 +228,7 @@ class _StoreScreenState extends State<StoreScreen> {
             const SizedBox(height: 12),
             Text(
               'No apps yet',
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
                 color: isDark
@@ -259,7 +259,7 @@ class _StoreScreenState extends State<StoreScreen> {
           if (installedMiniApps.isNotEmpty) ...[
             Text(
               'Your Apps',
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 15,
                 fontWeight: FontWeight.w800,
                 color: isDark
@@ -287,7 +287,7 @@ class _StoreScreenState extends State<StoreScreen> {
           if (hasFeatured) ...[
             Text(
               'Featured',
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 15,
                 fontWeight: FontWeight.w800,
                 color: isDark
@@ -313,7 +313,7 @@ class _StoreScreenState extends State<StoreScreen> {
           ],
           Text(
             'All Apps',
-            style: GoogleFonts.plusJakartaSans(
+            style: GoogleFonts.inter(
               fontSize: 15,
               fontWeight: FontWeight.w800,
               color: isDark
@@ -379,7 +379,7 @@ class _CategoryChip extends StatelessWidget {
           ),
           child: Text(
             label,
-            style: GoogleFonts.plusJakartaSans(
+            style: GoogleFonts.inter(
               fontSize: 12,
               fontWeight: FontWeight.w600,
               color: isActive
@@ -423,7 +423,7 @@ class _FeaturedCard extends StatelessWidget {
             const Spacer(),
             Text(
               app.displayName,
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 14,
                 fontWeight: FontWeight.w800,
                 color: Colors.white,
@@ -434,7 +434,7 @@ class _FeaturedCard extends StatelessWidget {
             const SizedBox(height: 2),
             Text(
               app.description ?? '',
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 10,
                 color: Colors.white.withValues(alpha: 0.8),
               ),
@@ -499,7 +499,7 @@ class _AppCard extends StatelessWidget {
                     ),
                     child: Text(
                       '\u2605',
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 10,
                         color: AppColors.warning,
                       ),
@@ -510,7 +510,7 @@ class _AppCard extends StatelessWidget {
             const SizedBox(height: 10),
             Text(
               app.displayName,
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 13,
                 fontWeight: FontWeight.w800,
                 color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -522,7 +522,7 @@ class _AppCard extends StatelessWidget {
             Expanded(
               child: Text(
                 app.description ?? '',
-                style: GoogleFonts.plusJakartaSans(
+                style: GoogleFonts.inter(
                   fontSize: 10.5,
                   color: isDark
                       ? AppColors.darkMutedForeground
@@ -539,7 +539,7 @@ class _AppCard extends StatelessWidget {
                   Expanded(
                     child: Text(
                       app.developerName!,
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 9.5,
                         color: isDark
                             ? AppColors.darkMutedForeground
@@ -551,7 +551,7 @@ class _AppCard extends StatelessWidget {
                   ),
                 Text(
                   'v${app.version ?? '1.0.0'}',
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 9.5,
                     color: isDark
                         ? AppColors.darkMutedForeground
@@ -610,23 +610,23 @@ class _AppCard extends StatelessWidget {
 IconData _getIcon(String? name) {
   switch (name) {
     case 'directions_bus_rounded':
-      return Icons.directions_bus_rounded;
+      return Icons.directions_bus_outlined;
     case 'shopping_cart_rounded':
-      return Icons.shopping_cart_rounded;
+      return Icons.shopping_cart_outlined;
     case 'directions_car_rounded':
-      return Icons.directions_car_rounded;
+      return Icons.directions_car_outlined;
     case 'storefront_rounded':
-      return Icons.storefront_rounded;
+      return Icons.storefront_outlined;
     case 'account_balance_wallet_rounded':
-      return Icons.account_balance_wallet_rounded;
+      return Icons.account_balance_wallet_outlined;
     case 'card_giftcard_rounded':
-      return Icons.card_giftcard_rounded;
+      return Icons.card_giftcard_outlined;
     case 'play_circle_outline_rounded':
-      return Icons.play_circle_outline_rounded;
+      return Icons.play_circle_outline_outlined;
     case 'work_outline_rounded':
-      return Icons.work_outline_rounded;
+      return Icons.work_outline_outlined;
     default:
-      return Icons.widgets_rounded;
+      return Icons.widgets_outlined;
   }
 }
 
@@ -695,7 +695,7 @@ class _InstalledAppCard extends StatelessWidget {
             const SizedBox(height: 6),
             Text(
               app.displayName,
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 10,
                 fontWeight: FontWeight.w600,
                 color: isDark ? AppColors.darkForeground : AppColors.foreground,

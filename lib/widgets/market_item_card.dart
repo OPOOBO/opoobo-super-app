@@ -156,7 +156,7 @@ class _MarketItemCardState extends State<MarketItemCard> {
                         ),
                         child: Text(
                           'Featured',
-                          style: GoogleFonts.plusJakartaSans(
+                          style: GoogleFonts.inter(
                             fontSize: 9,
                             fontWeight: FontWeight.w700,
                             color: Colors.white,
@@ -177,8 +177,8 @@ class _MarketItemCardState extends State<MarketItemCard> {
                         ),
                         child: Icon(
                           _fav
-                              ? Icons.favorite_rounded
-                              : Icons.favorite_border_rounded,
+                              ? Icons.favorite_outlined
+                              : Icons.favorite_border_outlined,
                           size: 16,
                           color: _fav ? Colors.redAccent : Colors.white,
                         ),
@@ -195,7 +195,7 @@ class _MarketItemCardState extends State<MarketItemCard> {
                 children: [
                   Text(
                     price,
-                    style: GoogleFonts.sora(
+                    style: GoogleFonts.inter(
                       fontSize: 15,
                       fontWeight: FontWeight.w700,
                       color: AppColors.primary,
@@ -206,7 +206,7 @@ class _MarketItemCardState extends State<MarketItemCard> {
                     title,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.plusJakartaSans(
+                    style: GoogleFonts.inter(
                       fontSize: 13,
                       fontWeight: FontWeight.w600,
                     ),
@@ -225,7 +225,7 @@ class _MarketItemCardState extends State<MarketItemCard> {
                           [area, time].where((s) => s.isNotEmpty).join(' · '),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style: GoogleFonts.plusJakartaSans(
+                          style: GoogleFonts.inter(
                             fontSize: 10.5,
                             color: Colors.grey,
                           ),

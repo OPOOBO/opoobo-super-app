@@ -7,6 +7,7 @@ import '../screens/bus_module_screen.dart';
 import '../screens/marketplace_screen.dart';
 import '../screens/mini_app_screen.dart';
 import '../utils/navigation.dart';
+import '../widgets/line_icon.dart';
 import '../widgets/screen_header.dart';
 
 class ServicesScreen extends StatefulWidget {
@@ -59,7 +60,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
               child: Row(
                 children: [
                   Icon(
-                    Icons.search_rounded,
+                    Icons.search_outlined,
                     size: 18,
                     color: isDark
                         ? AppColors.darkMutedForeground
@@ -69,7 +70,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
                   Expanded(
                     child: TextField(
                       onChanged: (v) => setState(() => _search = v),
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 13,
                         fontWeight: FontWeight.w500,
                         color: isDark
@@ -79,7 +80,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: 'Search services...',
-                        hintStyle: GoogleFonts.plusJakartaSans(
+                        hintStyle: GoogleFonts.inter(
                           fontSize: 13,
                           fontWeight: FontWeight.w500,
                           color: isDark
@@ -121,7 +122,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
                       ),
                       child: Text(
                         f,
-                        style: GoogleFonts.plusJakartaSans(
+                        style: GoogleFonts.inter(
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
                           color: isActive
@@ -145,7 +146,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Icon(
-                          Icons.grid_view_rounded,
+                          Icons.grid_view_outlined,
                           size: 48,
                           color: isDark
                               ? AppColors.darkMutedForeground
@@ -154,7 +155,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
                         const SizedBox(height: 12),
                         Text(
                           'No services found',
-                          style: GoogleFonts.plusJakartaSans(
+                          style: GoogleFonts.inter(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
                             color: isDark
@@ -246,10 +247,12 @@ class _ModuleTile extends StatelessWidget {
                     color: AppColors.primary.withValues(alpha: 0.16),
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  child: Icon(
-                    _getIcon(module.name),
-                    color: AppColors.primary,
-                    size: 24,
+                  child: Center(
+                    child: ModuleLineIcon(
+                      moduleName: module.name,
+                      size: 24,
+                      color: AppColors.primary,
+                    ),
                   ),
                 ),
                 const Spacer(),
@@ -265,7 +268,7 @@ class _ModuleTile extends StatelessWidget {
                     ),
                     child: Text(
                       'Coming soon',
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 10,
                         fontWeight: FontWeight.w700,
                         color: AppColors.warningForeground,
@@ -284,7 +287,7 @@ class _ModuleTile extends StatelessWidget {
                     ),
                     child: Text(
                       'Linked',
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 10,
                         fontWeight: FontWeight.w700,
                         color: AppColors.primary,
@@ -296,7 +299,7 @@ class _ModuleTile extends StatelessWidget {
             const SizedBox(height: 10),
             Text(
               module.displayName,
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 13,
                 fontWeight: FontWeight.w800,
                 color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -307,7 +310,7 @@ class _ModuleTile extends StatelessWidget {
             const SizedBox(height: 2),
             Text(
               module.description ?? '',
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 11,
                 fontWeight: FontWeight.w500,
                 color: isDark
@@ -340,20 +343,5 @@ class _ModuleTile extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  IconData _getIcon(String name) {
-    switch (name) {
-      case 'bus':
-        return Icons.directions_bus_rounded;
-      case 'market':
-        return Icons.shopping_cart_rounded;
-      case 'go':
-        return Icons.directions_car_rounded;
-      case 'mall':
-        return Icons.storefront_rounded;
-      default:
-        return Icons.apps_rounded;
-    }
   }
 }

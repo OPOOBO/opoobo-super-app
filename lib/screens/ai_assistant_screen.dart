@@ -254,7 +254,7 @@ class _AiAssistantScreenState extends State<AiAssistantScreen> {
                           ),
                           child: Text(
                             message.content,
-                            style: GoogleFonts.plusJakartaSans(
+                            style: GoogleFonts.inter(
                               fontSize: 13.5,
                               color: mine
                                   ? Colors.white
@@ -290,7 +290,7 @@ class _AiAssistantScreenState extends State<AiAssistantScreen> {
                                   ),
                                   child: Text(
                                     action.label,
-                                    style: GoogleFonts.plusJakartaSans(
+                                    style: GoogleFonts.inter(
                                       fontSize: 12,
                                       fontWeight: FontWeight.w600,
                                       color: AppColors.primary,
@@ -369,7 +369,7 @@ class _AiAssistantScreenState extends State<AiAssistantScreen> {
                             ),
                           )
                         : const Icon(
-                            Icons.send_rounded,
+                            Icons.send_outlined,
                             color: Colors.white,
                             size: 20,
                           ),

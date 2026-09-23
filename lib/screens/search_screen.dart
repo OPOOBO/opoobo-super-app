@@ -9,6 +9,7 @@ import '../screens/bus_module_screen.dart';
 import '../screens/jobs_screen.dart';
 import '../screens/market_detail_screen.dart';
 import '../utils/navigation.dart';
+import '../widgets/line_icon.dart';
 import '../widgets/screen_header.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -133,7 +134,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 child: Row(
                   children: [
                     Icon(
-                      Icons.search_rounded,
+                      Icons.search_outlined,
                       size: 20,
                       color: isDark
                           ? AppColors.darkMutedForeground
@@ -145,7 +146,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         controller: _controller,
                         autofocus: true,
                         onChanged: _onQueryChanged,
-                        style: GoogleFonts.plusJakartaSans(
+                        style: GoogleFonts.inter(
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
                           color: isDark
@@ -155,7 +156,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: 'Search everything...',
-                          hintStyle: GoogleFonts.plusJakartaSans(
+                          hintStyle: GoogleFonts.inter(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                             color: isDark
@@ -172,7 +173,7 @@ class _SearchScreenState extends State<SearchScreen> {
                           _onQueryChanged('');
                         },
                         child: Icon(
-                          Icons.close_rounded,
+                          Icons.close_outlined,
                           size: 20,
                           color: isDark
                               ? AppColors.darkMutedForeground
@@ -211,7 +212,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         ),
                         child: Text(
                           s,
-                          style: GoogleFonts.plusJakartaSans(
+                          style: GoogleFonts.inter(
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
                             color: isActive
@@ -247,7 +248,7 @@ class _SearchScreenState extends State<SearchScreen> {
         children: [
           Text(
             'Suggested',
-            style: GoogleFonts.sora(
+            style: GoogleFonts.inter(
               fontSize: 16,
               fontWeight: FontWeight.w800,
               color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -279,7 +280,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   ),
                   child: Text(
                     s,
-                    style: GoogleFonts.plusJakartaSans(
+                    style: GoogleFonts.inter(
                       fontSize: 13,
                       fontWeight: FontWeight.w600,
                       color: isDark
@@ -325,7 +326,7 @@ class _SearchScreenState extends State<SearchScreen> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(
-              Icons.search_off_rounded,
+              Icons.search_off_outlined,
               size: 48,
               color: isDark
                   ? AppColors.darkMutedForeground
@@ -334,7 +335,7 @@ class _SearchScreenState extends State<SearchScreen> {
             const SizedBox(height: 12),
             Text(
               'No results for "$_query"',
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
                 color: isDark
@@ -355,7 +356,7 @@ class _SearchScreenState extends State<SearchScreen> {
           if (filtered.isNotEmpty) ...[
             Text(
               'Services',
-              style: GoogleFonts.sora(
+              style: GoogleFonts.inter(
                 fontSize: 16,
                 fontWeight: FontWeight.w800,
                 color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -396,7 +397,7 @@ class _SearchScreenState extends State<SearchScreen> {
               return _ContentRow(
                 isDark: isDark,
                 imageUrl: image,
-                fallbackIcon: Icons.shopping_cart_rounded,
+                fallbackIcon: Icons.shopping_cart_outlined,
                 title: title,
                 subtitle: price,
                 sourceLabel: 'Market',
@@ -420,7 +421,7 @@ class _SearchScreenState extends State<SearchScreen> {
               return _ContentRow(
                 isDark: isDark,
                 imageUrl: '',
-                fallbackIcon: Icons.work_outline_rounded,
+                fallbackIcon: Icons.work_outline_outlined,
                 title: title,
                 subtitle: company,
                 sourceLabel: 'Jobs',
@@ -440,7 +441,7 @@ class _SearchScreenState extends State<SearchScreen> {
       padding: const EdgeInsets.only(top: 12),
       child: Text(
         t,
-        style: GoogleFonts.sora(
+        style: GoogleFonts.inter(
           fontSize: 16,
           fontWeight: FontWeight.w800,
           color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -515,7 +516,7 @@ class _ContentRow extends StatelessWidget {
                     title,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.plusJakartaSans(
+                    style: GoogleFonts.inter(
                       fontSize: 13,
                       fontWeight: FontWeight.w700,
                     ),
@@ -525,7 +526,7 @@ class _ContentRow extends StatelessWidget {
                       subtitle,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 11,
                         color: AppColors.mutedForeground,
                       ),
@@ -542,7 +543,7 @@ class _ContentRow extends StatelessWidget {
               ),
               child: Text(
                 sourceLabel,
-                style: GoogleFonts.plusJakartaSans(
+                style: GoogleFonts.inter(
                   fontSize: 10,
                   fontWeight: FontWeight.w700,
                   color: sourceColor,
@@ -619,10 +620,12 @@ class _SearchModuleTile extends StatelessWidget {
                     color: AppColors.primary.withValues(alpha: 0.16),
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  child: Icon(
-                    _getIcon(module.name),
-                    color: AppColors.primary,
-                    size: 24,
+                  child: Center(
+                    child: ModuleLineIcon(
+                      moduleName: module.name,
+                      size: 24,
+                      color: AppColors.primary,
+                    ),
                   ),
                 ),
                 const Spacer(),
@@ -638,7 +641,7 @@ class _SearchModuleTile extends StatelessWidget {
                     ),
                     child: Text(
                       'Soon',
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 10,
                         fontWeight: FontWeight.w700,
                         color: AppColors.warningForeground,
@@ -657,7 +660,7 @@ class _SearchModuleTile extends StatelessWidget {
                     ),
                     child: Text(
                       'Linked',
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 10,
                         fontWeight: FontWeight.w700,
                         color: AppColors.primary,
@@ -669,7 +672,7 @@ class _SearchModuleTile extends StatelessWidget {
             const SizedBox(height: 10),
             Text(
               module.displayName,
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 13,
                 fontWeight: FontWeight.w800,
                 color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -680,7 +683,7 @@ class _SearchModuleTile extends StatelessWidget {
             const SizedBox(height: 2),
             Text(
               module.description ?? '',
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 11,
                 fontWeight: FontWeight.w500,
                 color: isDark
@@ -695,20 +698,5 @@ class _SearchModuleTile extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  IconData _getIcon(String name) {
-    switch (name) {
-      case 'bus':
-        return Icons.directions_bus_rounded;
-      case 'market':
-        return Icons.shopping_cart_rounded;
-      case 'go':
-        return Icons.directions_car_rounded;
-      case 'mall':
-        return Icons.storefront_rounded;
-      default:
-        return Icons.apps_rounded;
-    }
   }
 }

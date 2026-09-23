@@ -73,7 +73,7 @@ class AuthShell extends StatelessWidget {
                   // Title
                   Text(
                     title,
-                    style: gf.GoogleFonts.sora(
+                    style: gf.GoogleFonts.inter(
                       fontSize: 28,
                       fontWeight: FontWeight.w800,
                       color: isDark
@@ -85,7 +85,7 @@ class AuthShell extends StatelessWidget {
                   const SizedBox(height: 8),
                   Text(
                     subtitle,
-                    style: gf.GoogleFonts.plusJakartaSans(
+                    style: gf.GoogleFonts.inter(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
                       color: isDark

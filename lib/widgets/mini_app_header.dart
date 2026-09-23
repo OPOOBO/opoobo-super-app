@@ -45,7 +45,7 @@ class MiniAppHeader extends StatelessWidget implements PreferredSizeWidget {
         children: [
           IconButton(
             icon: Icon(
-              Icons.arrow_back_ios_new_rounded,
+              Icons.arrow_back_ios_new_outlined,
               size: 18,
               color: isDark ? AppColors.darkForeground : AppColors.foreground,
             ),
@@ -53,7 +53,7 @@ class MiniAppHeader extends StatelessWidget implements PreferredSizeWidget {
           ),
           const SizedBox(width: 4),
           Icon(
-            Icons.open_in_new_rounded,
+            Icons.open_in_new_outlined,
             size: 14,
             color: isDark
                 ? AppColors.darkMutedForeground
@@ -63,7 +63,7 @@ class MiniAppHeader extends StatelessWidget implements PreferredSizeWidget {
           Expanded(
             child: Text(
               moduleName,
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 fontSize: 15,
                 fontWeight: FontWeight.w700,
                 color: isDark ? AppColors.darkForeground : AppColors.foreground,
@@ -75,7 +75,7 @@ class MiniAppHeader extends StatelessWidget implements PreferredSizeWidget {
           if (onRefresh != null)
             IconButton(
               icon: Icon(
-                Icons.refresh_rounded,
+                Icons.refresh_outlined,
                 size: 18,
                 color: isDark
                     ? AppColors.darkForeground
@@ -85,7 +85,7 @@ class MiniAppHeader extends StatelessWidget implements PreferredSizeWidget {
             ),
           PopupMenuButton<String>(
             icon: Icon(
-              Icons.more_vert_rounded,
+              Icons.more_vert_outlined,
               size: 18,
               color: isDark ? AppColors.darkForeground : AppColors.foreground,
             ),

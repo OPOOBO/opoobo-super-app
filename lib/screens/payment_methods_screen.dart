@@ -51,21 +51,21 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
                       const SizedBox(height: 12),
                       _AddButton(
                         label: 'Add card',
-                        icon: Icons.credit_card_rounded,
+                        icon: Icons.credit_card_outlined,
                         isDark: isDark,
                         onTap: () => _showAddCardDialog(),
                       ),
                       const SizedBox(height: 8),
                       _AddButton(
                         label: 'Add bank account',
-                        icon: Icons.account_balance_rounded,
+                        icon: Icons.account_balance_outlined,
                         isDark: isDark,
                         onTap: () => _showAddBankDialog(),
                       ),
                       const SizedBox(height: 24),
                       Text(
                         'OPOOBO Wallet',
-                        style: GoogleFonts.sora(
+                        style: GoogleFonts.inter(
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
                         ),
@@ -85,7 +85,7 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
                                 children: [
                                   Text(
                                     'OPOOBO WALLET',
-                                    style: GoogleFonts.plusJakartaSans(
+                                    style: GoogleFonts.inter(
                                       fontSize: 10,
                                       fontWeight: FontWeight.w700,
                                       letterSpacing: 1.2,
@@ -95,7 +95,7 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
                                   const SizedBox(height: 4),
                                   Text(
                                     '\u20a60.00',
-                                    style: GoogleFonts.sora(
+                                    style: GoogleFonts.inter(
                                       fontSize: 28,
                                       fontWeight: FontWeight.w800,
                                       color: Colors.white,
@@ -115,7 +115,7 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
                               ),
                               child: Text(
                                 'Top up',
-                                style: GoogleFonts.plusJakartaSans(
+                                style: GoogleFonts.inter(
                                   fontSize: 13,
                                   fontWeight: FontWeight.w700,
                                   color: Colors.white,
@@ -257,11 +257,11 @@ class _EmptyState extends StatelessWidget {
       child: Center(
         child: Column(
           children: [
-            Icon(Icons.credit_card_off_rounded, size: 48, color: AppColors.mutedForeground),
+            Icon(Icons.credit_card_off_outlined, size: 48, color: AppColors.mutedForeground),
             const SizedBox(height: 12),
-            Text('No payment methods', style: GoogleFonts.plusJakartaSans(fontSize: 14, fontWeight: FontWeight.w600, color: AppColors.mutedForeground)),
+            Text('No payment methods', style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.w600, color: AppColors.mutedForeground)),
             const SizedBox(height: 4),
-            Text('Add a card or bank account to get started', style: GoogleFonts.plusJakartaSans(fontSize: 12, color: AppColors.mutedForeground)),
+            Text('Add a card or bank account to get started', style: GoogleFonts.inter(fontSize: 12, color: AppColors.mutedForeground)),
           ],
         ),
       ),
@@ -307,7 +307,7 @@ class _PaymentCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
             ),
             child: Icon(
-              method.type == 'card' ? Icons.credit_card_rounded : Icons.account_balance_rounded,
+              method.type == 'card' ? Icons.credit_card_outlined : Icons.account_balance_outlined,
               color: method.type == 'card' ? AppColors.primary : AppColors.success,
               size: 22,
             ),
@@ -319,18 +319,18 @@ class _PaymentCard extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Text(method.displayName, style: GoogleFonts.plusJakartaSans(fontSize: 14, fontWeight: FontWeight.w600)),
+                    Text(method.displayName, style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.w600)),
                     if (method.isDefault) ...[
                       const SizedBox(width: 8),
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                         decoration: BoxDecoration(color: AppColors.primarySoft, borderRadius: BorderRadius.circular(6)),
-                        child: Text('Default', style: GoogleFonts.plusJakartaSans(fontSize: 10, fontWeight: FontWeight.w700, color: AppColors.primary)),
+                        child: Text('Default', style: GoogleFonts.inter(fontSize: 10, fontWeight: FontWeight.w700, color: AppColors.primary)),
                       ),
                     ],
                   ],
                 ),
-                Text(method.subtitle, style: GoogleFonts.plusJakartaSans(fontSize: 12, color: AppColors.mutedForeground)),
+                Text(method.subtitle, style: GoogleFonts.inter(fontSize: 12, color: AppColors.mutedForeground)),
               ],
             ),
           ),
@@ -343,7 +343,7 @@ class _PaymentCard extends StatelessWidget {
               if (!method.isDefault) const PopupMenuItem(value: 'default', child: Text('Set as default')),
               const PopupMenuItem(value: 'delete', child: Text('Remove')),
             ],
-            icon: Icon(Icons.more_vert_rounded, size: 20, color: AppColors.mutedForeground),
+            icon: Icon(Icons.more_vert_outlined, size: 20, color: AppColors.mutedForeground),
           ),
         ],
       ),
@@ -374,7 +374,7 @@ class _AddButton extends StatelessWidget {
           children: [
             Icon(icon, size: 20, color: AppColors.primary),
             const SizedBox(width: 10),
-            Text(label, style: GoogleFonts.plusJakartaSans(fontSize: 14, fontWeight: FontWeight.w600, color: AppColors.primary)),
+            Text(label, style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.w600, color: AppColors.primary)),
           ],
         ),
       ),

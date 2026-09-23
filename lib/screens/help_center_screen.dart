@@ -52,14 +52,14 @@ class HelpCenterScreen extends StatelessWidget {
                   child: Row(
                     children: [
                       Icon(
-                        Icons.search_rounded,
+                        Icons.search_outlined,
                         size: 20,
                         color: AppColors.mutedForeground,
                       ),
                       const SizedBox(width: 10),
                       Text(
                         'Search help topics...',
-                        style: GoogleFonts.plusJakartaSans(
+                        style: GoogleFonts.inter(
                           fontSize: 14,
                           color: AppColors.mutedForeground,
                         ),
@@ -71,7 +71,7 @@ class HelpCenterScreen extends StatelessWidget {
                 // Quick links
                 Text(
                   'QUICK LINKS',
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 11,
                     fontWeight: FontWeight.w700,
                     letterSpacing: 1,
@@ -80,7 +80,7 @@ class HelpCenterScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 _QuickLink(
-                  icon: Icons.chat_bubble_outline_rounded,
+                  icon: Icons.chat_bubble_outline_outlined,
                   label: 'Chat with support',
                   isDark: isDark,
                   onTap: () => _showComingSoon(context, 'Live chat'),
@@ -107,7 +107,7 @@ class HelpCenterScreen extends StatelessWidget {
                 // FAQs
                 Text(
                   'FREQUENTLY ASKED',
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 11,
                     fontWeight: FontWeight.w700,
                     letterSpacing: 1,
@@ -177,14 +177,14 @@ class _QuickLink extends StatelessWidget {
             Expanded(
               child: Text(
                 label,
-                style: GoogleFonts.plusJakartaSans(
+                style: GoogleFonts.inter(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
                 ),
               ),
             ),
             Icon(
-              Icons.chevron_right_rounded,
+              Icons.chevron_right_outlined,
               size: 20,
               color: AppColors.mutedForeground,
             ),
@@ -219,7 +219,7 @@ class _FaqTile extends StatelessWidget {
         childrenPadding: const EdgeInsets.fromLTRB(14, 0, 14, 14),
         title: Text(
           question,
-          style: GoogleFonts.plusJakartaSans(
+          style: GoogleFonts.inter(
             fontSize: 14,
             fontWeight: FontWeight.w600,
           ),
@@ -227,7 +227,7 @@ class _FaqTile extends StatelessWidget {
         children: [
           Text(
             answer,
-            style: GoogleFonts.plusJakartaSans(
+            style: GoogleFonts.inter(
               fontSize: 13,
               color: AppColors.mutedForeground,
               height: 1.5,

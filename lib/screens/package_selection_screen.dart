@@ -37,7 +37,7 @@ class PackageSelectionScreen extends StatelessWidget {
                   ? Center(
                       child: Text(
                         'No packages available',
-                        style: GoogleFonts.plusJakartaSans(
+                        style: GoogleFonts.inter(
                           fontSize: 14,
                           color: isDark
                               ? AppColors.darkMutedForeground
@@ -52,7 +52,7 @@ class PackageSelectionScreen extends StatelessWidget {
                         children: [
                           Text(
                             '${busBooking.passengers} passenger${busBooking.passengers > 1 ? 's' : ''}',
-                            style: GoogleFonts.sora(
+                            style: GoogleFonts.inter(
                               fontSize: 16,
                               fontWeight: FontWeight.w800,
                               color: isDark
@@ -63,7 +63,7 @@ class PackageSelectionScreen extends StatelessWidget {
                           const SizedBox(height: 4),
                           Text(
                             'Choose a package for your trip',
-                            style: GoogleFonts.plusJakartaSans(
+                            style: GoogleFonts.inter(
                               fontSize: 13,
                               fontWeight: FontWeight.w500,
                               color: isDark
@@ -146,7 +146,7 @@ class _PackageCard extends StatelessWidget {
               children: [
                 Text(
                   package.name,
-                  style: GoogleFonts.sora(
+                  style: GoogleFonts.inter(
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
                     color: isDark
@@ -156,7 +156,7 @@ class _PackageCard extends StatelessWidget {
                 ),
                 Text(
                   '\u20a6${package.price.toStringAsFixed(0)}',
-                  style: GoogleFonts.sora(
+                  style: GoogleFonts.inter(
                     fontSize: 18,
                     fontWeight: FontWeight.w800,
                     color: AppColors.primary,
@@ -168,7 +168,7 @@ class _PackageCard extends StatelessWidget {
               const SizedBox(height: 6),
               Text(
                 package.description,
-                style: GoogleFonts.plusJakartaSans(
+                style: GoogleFonts.inter(
                   fontSize: 12,
                   fontWeight: FontWeight.w500,
                   color: isDark
@@ -183,14 +183,14 @@ class _PackageCard extends StatelessWidget {
               runSpacing: 6,
               children: [
                 _FeatureChip(
-                  icon: Icons.luggage_rounded,
+                  icon: Icons.luggage_outlined,
                   label: '${package.luggageLimit} luggage',
                   isDark: isDark,
                 ),
                 _FeatureChip(
                   icon: package.allowsSeatSelection
-                      ? Icons.event_seat_rounded
-                      : Icons.auto_fix_high_rounded,
+                      ? Icons.event_seat_outlined
+                      : Icons.auto_fix_high_outlined,
                   label: package.allowsSeatSelection
                       ? 'Choose seat'
                       : 'Auto-assign',
@@ -198,7 +198,7 @@ class _PackageCard extends StatelessWidget {
                 ),
                 if (package.allowsReschedule)
                   _FeatureChip(
-                    icon: Icons.swap_horiz_rounded,
+                    icon: Icons.swap_horiz_outlined,
                     label:
                         'Reschedule (\u20a6${package.rescheduleFee.toStringAsFixed(0)})',
                     isDark: isDark,
@@ -209,7 +209,7 @@ class _PackageCard extends StatelessWidget {
               const SizedBox(height: 8),
               Text(
                 'Only ${package.remainingSeats} seats left!',
-                style: GoogleFonts.plusJakartaSans(
+                style: GoogleFonts.inter(
                   fontSize: 11,
                   fontWeight: FontWeight.w700,
                   color: AppColors.destructive,
@@ -243,7 +243,7 @@ class _FeatureChip extends StatelessWidget {
         const SizedBox(width: 4),
         Text(
           label,
-          style: GoogleFonts.plusJakartaSans(
+          style: GoogleFonts.inter(
             fontSize: 11,
             fontWeight: FontWeight.w600,
             color: isDark

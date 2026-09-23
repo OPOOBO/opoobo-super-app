@@ -60,7 +60,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                       child: ChoiceChip(
                         label: Text(
                           f,
-                          style: GoogleFonts.plusJakartaSans(
+                          style: GoogleFonts.inter(
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
                             color: _filter == f
@@ -92,14 +92,14 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(
-                                  Icons.notifications_none_rounded,
+                                  Icons.notifications_none_outlined,
                                   size: 64,
                                   color: AppColors.mutedForeground,
                                 ),
                                 const SizedBox(height: 12),
                                 Text(
                                   'No notifications yet',
-                                  style: GoogleFonts.plusJakartaSans(
+                                  style: GoogleFonts.inter(
                                     fontSize: 15,
                                     color: AppColors.mutedForeground,
                                   ),
@@ -150,7 +150,7 @@ class _NotificationTile extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
             child: const Icon(
-              Icons.notifications_none_rounded,
+              Icons.notifications_none_outlined,
               size: 20,
               color: AppColors.primary,
             ),
@@ -162,7 +162,7 @@ class _NotificationTile extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: GoogleFonts.plusJakartaSans(
+                  style: GoogleFonts.inter(
                     fontSize: 13,
                     fontWeight: FontWeight.w700,
                   ),
@@ -173,7 +173,7 @@ class _NotificationTile extends StatelessWidget {
                     body,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.plusJakartaSans(
+                    style: GoogleFonts.inter(
                       fontSize: 12,
                       color: AppColors.mutedForeground,
                     ),
@@ -183,7 +183,7 @@ class _NotificationTile extends StatelessWidget {
                   const SizedBox(height: 4),
                   Text(
                     time,
-                    style: GoogleFonts.plusJakartaSans(
+                    style: GoogleFonts.inter(
                       fontSize: 11,
                       color: AppColors.mutedForeground,
                     ),
